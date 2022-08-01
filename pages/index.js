@@ -2,7 +2,8 @@ import Head from "next/head";
 import HomePage from "../components/common/HomePage";
 import { baseUrl } from "../helper/constants";
 
-export default function Home() {
+export default function Home({ stories, combinedData1, combinedData2 }) {
+  
   return (
     <div>
       <Head>
@@ -16,7 +17,8 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomePage />
+       <HomePage stories={stories} combinedData1={combinedData1} combinedData2={combinedData2} />
+
     </div>
   );
 }
@@ -60,6 +62,7 @@ export async function getStaticProps() {
   };
   const combinedData1 = await getCombinedData1(bodyAPIBulk1);
   const combinedData2 = await getCombinedData2(bodyAPIBulk2);
+  console.log("HOME", homeDisplay)
   return {
     props: {
       stories: homeDisplay,

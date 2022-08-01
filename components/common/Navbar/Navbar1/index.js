@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import StyleWrapper from "./style";
-// import Search from "../Search";
 import Title from "../Title";
 import Search from "../Search";
 import Hambar from "../Hambar";
@@ -16,7 +15,6 @@ function NavBar1(props) {
           document.documentElement.scrollTop === 0
         ) {
           document.getElementById("new-image").style.width = "40%";
-          console.log("IN 40");
         }
         if (
           (document.body.scrollTop < 50 ||
@@ -25,19 +23,15 @@ function NavBar1(props) {
             document.documentElement.scrollTop > 25)
         ) {
           document.getElementById("new-image").style.width = "20%";
-          console.log("IN 50");
         }
         if (
           document.body.scrollTop > 100 ||
           document.documentElement.scrollTop > 100
         ) {
           setScrollValue(true);
-          console.log("IN 100");
   
           document.getElementById("new-image").style.width = "100%";
         } else {
-          console.log("IN else");
-  
           setScrollValue(false);
           // document.getElementById("new-image").style.width = "40%";
         }
@@ -60,7 +54,7 @@ function NavBar1(props) {
             scrollValue === true ? `d-flex justify-content-center` : "menuCon"
           }
         >
-          <Title scrollValue={scrollValue} />
+          <Title titleValue={scrollValue} />
         </div>
 
         {/* Right Part */}
