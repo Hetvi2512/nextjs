@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Image from "next/image";
-// import Image from 'next/future/image'
 import { Drawer } from "antd";
 import NavDrawer from "../../../public/images/bar11.png";
 import HamShow from "./HamShow";

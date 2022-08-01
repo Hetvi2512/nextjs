@@ -3,7 +3,11 @@ import HamCommunity from "./HamCommunity";
 import HamCulture from "./HamCulture";
 import HamSelf from "./HamSelf";
 import HamStyle from "./HamStyle";
+import { useRouter } from 'next/router'
+
 function HamShow({displayCategory, category, displayHideCategory,onClose }) {
+  const router = useRouter()
+
   return (
     <div>
       <div className="ham-main">
@@ -12,7 +16,7 @@ function HamShow({displayCategory, category, displayHideCategory,onClose }) {
             className="text-shadow InterstateCompressed-Bold"
             style={{ width: "6ch" }}
             onClick={() => {
-              props.history.push("/style");
+              router.push('/style', undefined, { shallow: true })
               onClose();
             }}
             onMouseEnter={() => {
@@ -25,7 +29,7 @@ function HamShow({displayCategory, category, displayHideCategory,onClose }) {
           <div
             className="text-shadow InterstateCompressed-Bold"
             style={{ width: "5ch" }}
-            onClick={() => props.history.push("/self")}
+            onClick={() => router.push('/self', undefined, { shallow: true })}
             onMouseOver={() => {
               displayCategory("self");
             }}
@@ -36,7 +40,7 @@ function HamShow({displayCategory, category, displayHideCategory,onClose }) {
           <div
             className="text-shadow InterstateCompressed-Bold"
             style={{ width: "8ch" }}
-            onClick={() => props.history.push("/culture")}
+            onClick={() => router.push('/culture', undefined, { shallow: true })}
             onMouseOver={() => {
               displayCategory("culture");
             }}
@@ -47,7 +51,7 @@ function HamShow({displayCategory, category, displayHideCategory,onClose }) {
           <div
             className="text-shadow InterstateCompressed-Bold"
             style={{ width: "11ch" }}
-            onClick={() => props.history.push("/community")}
+            onClick={() =>router.push('/community', undefined, { shallow: true })}
             onMouseOver={() => {
               displayCategory("community");
             }}
