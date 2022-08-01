@@ -291,6 +291,7 @@ body{
   text-transform: capitalize;
 }
 .menuCon {
+  position: relative;
   width: calc(100% - 150px);
   /* height: 25px; */
 }
