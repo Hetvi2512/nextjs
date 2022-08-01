@@ -1,7 +1,7 @@
 import Image from "next/image";
 import {useState} from "react"
 import SearchIcon from "../../../public/images/search.svg";
-// import ModernDrawer from "./ModernDrawer.js";
+import ModernDrawer from "./ModernDrawer.js";
 
 function Search() {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -20,7 +20,7 @@ function Search() {
         alt="search-icon"
       />
         <div className="search-bar-drawer">
-        {/* <ModernDrawer searchVisible={searchVisible} onCloseSearch={onCloseSearch} /> */}
+        <ModernDrawer searchVisible={searchVisible} onCloseSearch={onCloseSearch} />
           </div>
     </div>
   );

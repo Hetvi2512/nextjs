@@ -18,7 +18,6 @@ function ModernDrawer({ searchVisible, onCloseSearch }) {
   );
   console.log("trendResponse",trendResponse?.items)
   const fetcher = async () => {
-    console.log("CalIING API .......")
     const response = await fetch(`/api/v1/search/${inputValue}`);
     const data = await response.json();
     return data;
