@@ -9,6 +9,8 @@ import '../styles/StorySection.css'
 import '../styles/Ticker.css'
 import '../styles/ArticleLayout.css'
 import '../styles/StyleSection.css'
+import '../styles/Advertisement.css'
+import '../styles/CultureSection.css'
 import "react-modern-drawer/dist/index.css";
 
 

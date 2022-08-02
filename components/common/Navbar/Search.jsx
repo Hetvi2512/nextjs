@@ -12,7 +12,7 @@ function Search() {
     setSearchVisible(false);
   };
   return (
-    <div className="search-div">
+    <div style={{ width: "20px"}} className="search-div">
       <Image
         onClick={onShowDrawerSearch}
         className="cursor-pointer"

@@ -1,4 +1,5 @@
-export const baseUrl = 'https://theestablished.qtstage.io';
+export const baseUrl ='https://theestablished.quintype.io'
+// export const baseUrl = 'https://theestablished.qtstage.io';
 // export const imgBaseURL = 'https://gumlet.assettype.com/';
 export const imgBaseURL = 'https://gumlet.assettype.com/';
 export const gaTag = 'GTM-WWGMNM2';

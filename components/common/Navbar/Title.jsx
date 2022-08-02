@@ -4,10 +4,10 @@ import Logo1 from "../../../public/images/LOGO.svg";
 import Logo2 from "../../../public/images/LOGO2.svg";
 import BottomMenu from "./BottomMenu";
 
-function Title({ scrollValue }) {
+function Title({ titleValue }) {
   return (
     <>
-      {scrollValue === true ? (
+      {titleValue === true ? (
         <div style={{ width: "50%" }}>
           <Image
             id="new-image"

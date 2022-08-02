@@ -1,5 +1,5 @@
 import Head from "next/head";
-import HomePage from "../components/common/HomePage";
+import HomePage from "../components/HomePage";
 import { baseUrl } from "../helper/constants";
 
 export default function Home({ stories, combinedData1, combinedData2 }) {
