@@ -1,0 +1,22 @@
+.advertise-main{
+    /* background-color:#E6E6E6; */
+    text-align: center;
+}
+.advertise-head{
+    font-size: 18px;
+    margin-bottom:2% ;
+    color: gray;
+}
+.advertise-poster{
+    margin-left: 14%;
+    margin-right: 14%;
+}
+.advertise-poster img{
+    width: 100%;
+}
+@media (max-width: 480px) {
+    .advertise-poster{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+}
