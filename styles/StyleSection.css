@@ -4,7 +4,8 @@
   .style-heading {
     text-align: center;
   }
-  .style-heading img {
+  .style-heading-img {
+    position: relative;
     height: 200px;
   }
   
@@ -20,15 +21,25 @@
   /* .style-content-1 {
     margin-top: 10px;
   } */
-  .style-content-main img {
+  .style-content-main-img {
+    position: relative;
     width: 100%;
+    height:20vw;
+    object-fit: contain;
+  }
+  .style-content-third-img {
+    position: relative;
+    width: 100%;
+    height:25vw;
     object-fit: contain;
   }
   .style-content-2 {
     grid-row: span 2;
   }
-  .style-content-2 img {
+  .style-content-2-img {
     width: 100%;
+    position: relative;
+    height: 35vw;
   }
   .style-content-cat {
     font-size: 16px;
@@ -43,7 +54,7 @@
     color: #ff003d;
   }
   
-  .style-content-title {
+  .style-content-title{
     font-size: 26px;
     line-height: 1.06;
     text-align: left;
@@ -69,7 +80,7 @@
     align-self: center;
   }
   @media (min-width: 320px) and (max-width: 480px) {
-    .style-heading img{
+    .style-heading-img{
       height: 40px;
     }
     .style-content-main {
@@ -79,14 +90,16 @@
       gap: 0%;
       margin-bottom: 0px;
     }
-    .style-content img {
+    .style-content-img {
+      position: relative;
+      height: 70vw;
       width: 100%;
       object-fit: contain;
     }
     .style-content {
       margin-bottom: 15%;
     }
-    .style-content img {
+    .style-content-img {
       width: 100%;
       object-fit: contain;
     }
@@ -116,7 +129,8 @@
     }
   }
   @media (min-width: 481px) and (max-width: 768px) {
-    .style-heading img {
+    .style-heading-img {
+      position: relative;
       height: 80px;
     }
     .style-content-main {
@@ -132,7 +146,9 @@
     .style-content-1 {
       margin-top: 0px;
   }
-    .style-content img {
+    .style-content-img {
+      position: relative;
+      height: 60vw;
       width: 100%;
       object-fit: contain;
     }
@@ -161,7 +177,8 @@
     /* .style-main {
       margin-top: 50px;
     } */
-    .style-heading img {
+    .style-heading-img {
+      position: relative;
       height: 80px;
   
     }
@@ -178,7 +195,9 @@
       margin-top: 0px;
     }
   
-    .style-content-1 img {
+    .style-content-1-img {
+      height: 16vw;
+      position: relative;
       width: 100%;
       object-fit: contain;
     }
@@ -187,8 +206,10 @@
       width: 100%;
     }
   
-    .style-content-2 img {
+    .style-content-2-img {
       width: 100%;
+      position: relative;
+      height: 30vw;
     }
     .style-content-cat {
       padding-top: 10px;
@@ -214,7 +235,7 @@
     /* .style-main {
       margin-top: 50px;
     } */
-    .style-heading img{
+    .style-heading-img{
       height: 100px;
   
     }
@@ -231,7 +252,9 @@
       margin-top: 10px;
     }
   
-    .style-content-1 img {
+    .style-content-1-img {
+      height: 16vw;
+      position: relative;
       width: 100%;
       object-fit: contain;
     }
@@ -240,8 +263,10 @@
       width: 100%;
     }
   
-    .style-content-2 img {
+    .style-content-2-img {
       width: 100%;
+      position: relative;
+      height: 30vw;
     }
     .style-content-cat {
       padding-top: 10px;
@@ -267,7 +292,7 @@
     /* .style-main {
       margin-top: 50px;
     } */
-    .style-heading img{
+    .style-heading-img{
       height: 120px;
   
     }
@@ -279,7 +304,9 @@
       margin-top: 10px;
     }
   
-    .style-content-1 img {
+    .style-content-1-img {
+      height: 16vw;
+      position: relative;
       width: 100%;
       object-fit: contain;
     }
@@ -288,8 +315,10 @@
       width: 100%;
     }
   
-    .style-content-2 img {
+    .style-content-2-img {
       width: 100%;
+      position: relative;
+      height: 30vw;
     }
     .style-content-cat {
       padding-top: 10px;
@@ -311,11 +340,12 @@
       align-self: center;
     }
   }
-  @media (min-width: 1441px) and (max-width: 1700px) {
+  @media (min-width: 1441px) and (max-width: 3000px) {
     /* .style-main {
       margin-top: 50px;
     } */
-    .style-heading img {
+    .style-heading-img {
+      position: relative;
       height: 150px;
   
     }
@@ -327,7 +357,9 @@
       margin-top: 10px;
     }
   
-    .style-content-1 img {
+    .style-content-1-img {
+      height: 16vw;
+      position: relative;
       width: 100%;
       object-fit: contain;
     }
@@ -336,18 +368,20 @@
       width: 100%;
     }
   
-    .style-content-2 img {
+    .style-content-2-img {
       width: 100%;
+      position: relative;
+      height: 34vw;
     }
     .style-content-cat {
       padding-top: 15px;
-      font-size: 14px;
+      font-size: 16px;
   
     }
   
     .style-content-title {
       padding-top: 15px;
-      font-size: 23px;
+      font-size: 26px;
     }
     .style-content-author {
       padding-top: 15px;
