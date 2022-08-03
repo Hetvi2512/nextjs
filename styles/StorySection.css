@@ -374,7 +374,7 @@
     .common-partone{
         position: absolute;
         width: 100%;
-        height: 320px;
+        height: 250px;
         background-color: #ff003d;
         display: flex;
         justify-content: center;

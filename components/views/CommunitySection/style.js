@@ -71,7 +71,7 @@ const CommunityWrapper = styled.div`
       text-align: right;
     }
   }
-  @media (min-width: 320px) and (max-width: 480px) {
+  @media (min-width: 250px) and (max-width: 480px) {
     .community-main-div{
       margin-left:5% !important;
       margin-right:5% !important;

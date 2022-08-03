@@ -10,7 +10,7 @@ const StyleWrapper = styled.div`
 .search-result-div:hover {
   color: #ff003d !important;
 }
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 250px) and (max-width: 480px) {
   .modern-drawer {
     top: 100% !important;
     height: 250px !important;

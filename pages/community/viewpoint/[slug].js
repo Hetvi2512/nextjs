@@ -1,11 +1,18 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Header2 from "../../../components/common/Header/Header2";
-import EstdFullFormat1 from "../../../components/views/ArticleLayout/EstdFullFormat1";
+import EstdFullFormat1 from "../../../components/views/ArticleLayout/EstdFullFormat1/EstdFullFormat1";
+import EstdFullFormat3 from "../../../components/views/ArticleLayout/EstdFullFormat3/EstdFullFormat3";
+import EstdFullFormat2 from '../../../components/views/ArticleLayout/EstdFullFormat2/EstdFullFormat2'
+import EstdFullFormatDynamic from "../../../components/views/ArticleLayout/Articles-1/EstdFullFormatDynamic";
+import EstdInterview from '../../../components/views/ArticleLayout/Articles-2/EstdInterview'
+import EstdSlideShow from '../../../components/views/ArticleLayout/Article-5/EstdSlideShow'
+import RandomLayout from '../../../components/views/ArticleLayout/RandomLayout'
 import { imgBaseURL } from "../../../helper/constants";
 
-function IndividualStories({ heroData, seoData , cards}) {
+function IndividualStories({ heroData, seoData, cards }) {
   const router = useRouter();
+  console.log("heroData",heroData)
   if (router.isFallback) {
     return <h1>Data is loading</h1>;
   }
@@ -27,9 +34,30 @@ function IndividualStories({ heroData, seoData , cards}) {
         <meta property="twitter:image:type" content="image/jpeg" />
         <meta property="twitter:image:width" content="400" />
         <meta property="twitter:image:height" content="300" />
+        <meta name="author" content={heroData.auth} data-react-helmet="true" />
+        <meta name="keywords" content={seoData .keywords} />
       </Head>
-      <Header2/>
-    <EstdFullFormat1 heroData={heroData} seoData={seoData}  cards={cards} />
+      <Header2 />
+      {
+        heroData["storyTemplate"] === "estd-full-format-1" ? (
+          <EstdFullFormat1 heroData={heroData} seoData={seoData} cards={cards}  />
+        ) : heroData["storyTemplate"] === "estd-full-format-2" ? (
+          <EstdFullFormat2 heroData={heroData} seoData={seoData} cards={cards}  />
+        ) : heroData["storyTemplate"] === "estd-full-format-3" ? (
+          <EstdFullFormat3 heroData={heroData} seoData={seoData} cards={cards}  />
+        ) : heroData["storyTemplate"] ===
+          "estd-full-format-dynamic" ? (
+          <EstdFullFormatDynamic heroData={heroData} seoData={seoData} cards={cards}  />
+        ) : heroData["storyTemplate"] === "estd-interview" ? (
+          <EstdInterview heroData={heroData} seoData={seoData} cards={cards}  />
+        ) : heroData["storyTemplate"] === "estd-slideshow" ? (
+          <EstdSlideShow heroData={heroData} seoData={seoData} cards={cards}  />
+        ) : heroData["storyTemplate"] === "text" ? (
+          <RandomLayout heroData={heroData} seoData={seoData} cards={cards}  />
+        ) : (
+          <div style={{ height: "80vh" }}></div>
+        )
+      }
     </>
   );
 }
@@ -56,8 +84,8 @@ export async function getStaticProps(context) {
     `http://theestablished.quintype.io/api/v1/stories-by-slug?slug=${params.slug}`
   );
   const individualStory = await response.json();
-  const cards = individualStory['story']['cards']
-  console.log("individualStory", cards)
+  const cards = individualStory["story"]["cards"];
+  console.log("individualStory", individualStory);
   const heroData = {
     img:
       "https://gumlet.assettype.com/" +
@@ -68,6 +96,8 @@ export async function getStaticProps(context) {
     title: individualStory["story"]["headline"],
     auth: individualStory["story"]["author-name"],
     imgCap: individualStory["story"]["hero-image-attribution"],
+    publishedAt:individualStory["story"]["published-at"],
+    storyTemplate: individualStory["story"]["story-template"]
   };
   if ("home" in individualStory["story"]["alternative"]) {
     if ("default" in individualStory["story"]["alternative"]["home"]) {
@@ -154,7 +184,7 @@ export async function getStaticProps(context) {
     props: {
       heroData,
       seoData: metaDataStory,
-      cards
+      cards,
     },
     revalidate: 50,
   };

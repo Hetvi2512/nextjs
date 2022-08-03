@@ -71,7 +71,7 @@ padding-top:2%;
   text-align:center;
 }
 }
-@media(min-width:320px) and (max-width:480px){
+@media(min-width:250px) and (max-width:480px){
   .footer-estd-logo{
     width:250px;
   }
@@ -253,7 +253,7 @@ padding-top:2%;
   }
 
 
-  @media(min-width:320px) and (max-width:375px){
+  @media(min-width:250px) and (max-width:375px){
     .the-established{
       text-align:center;
       bottom:10px !important;

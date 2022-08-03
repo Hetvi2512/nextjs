@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import EstdFullFormat1Card1 from "../../../components/views/ArticleLayout/EstdFullFormat1Card1";
-import EstdFullFormat1card2 from "../../../components/views/ArticleLayout/EstdFullFormat1card2";
-import SocialMediaShareButton from "../../../components/views/SocialMediaShareButton";
+import EstdFullFormat1Card1 from "./EstdFullFormat1Card1";
+import EstdFullFormat1card2 from "./EstdFullFormat1card2";
+import SocialMediaShareButton from "../../SocialMediaShareButton";
 import Image from "next/image";
 
 function EstdFullFormat1({ heroData, seoData, cards }) {
-  const [cardtype, setcardtype] = useState([]);
   const cardType = [];
+  const [cardtype, setcardtype] = useState([]);
   const [displayFlag, setDisplayFlag] = useState(false);
   var tempCardOneFlag;
 

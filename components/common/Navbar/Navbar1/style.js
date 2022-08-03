@@ -120,7 +120,7 @@ const StyleWrapper = styled.div`
   }
 
 
-  @media(min-width:320px) and (max-width:375px){
+  @media(min-width:250px) and (max-width:375px){
     .the-established{
       font-weight: 700;
       color: #ff003d;

@@ -64,7 +64,7 @@ const SelfWrapper = styled.div`
     color:#ff003d;
 }
 
-@media(min-width:320px) and (max-width:480px){
+@media(min-width:260px) and (max-width:480px){
     .self-title-img{
         position:relative;
         height:40px;

@@ -79,7 +79,7 @@
   .style-content-1 {
     align-self: center;
   }
-  @media (min-width: 320px) and (max-width: 480px) {
+  @media (min-width: 250px) and (max-width: 480px) {
     .style-heading-img{
       height: 40px;
     }
@@ -266,7 +266,7 @@
     .style-content-2-img {
       width: 100%;
       position: relative;
-      height: 30vw;
+      height: 33vw;
     }
     .style-content-cat {
       padding-top: 10px;

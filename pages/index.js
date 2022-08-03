@@ -7,6 +7,7 @@ export default function Home({ stories, combinedData1, combinedData2 }) {
   return (
     <div>
       <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>
           The Established: Style, Self, Culture, Community - For the well
           informed

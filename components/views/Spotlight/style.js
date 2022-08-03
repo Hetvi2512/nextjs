@@ -60,7 +60,7 @@ const SpotlightWrapper = styled.div`
     margin-left: 18%;
     margin-right: 16%;
 }
-@media(min-width:320px) and (max-width:480px){
+@media(min-width:250px) and (max-width:480px){
     .spotlight-head {
         font-size: 50px;
         letter-spacing: 0px;

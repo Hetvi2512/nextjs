@@ -1,5 +1,5 @@
 import React from 'react';
-import { imgBaseURL } from '../../../helper/constants';
+import { imgBaseURL } from '../../../../helper/constants';
 
 const EstdFullFormat1Card1 = (props) => {
     const { cards } = props;

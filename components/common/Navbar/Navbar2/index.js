@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 
 function Navbar2(props) {
   const PhoneView = useMediaQuery({ minWidth: 300, maxWidth: 480 });
+  console.log("PhoneView", PhoneView)
   const router = useRouter();
   return (
     <StyleWrapper>
@@ -20,7 +21,6 @@ function Navbar2(props) {
           style={{ cursor: "pointer" }}
           onClick={() => {
             router.push("/", undefined, { shallow: true });
-            window.scroll(0, 0);
           }}
         >
           {PhoneView ? (
