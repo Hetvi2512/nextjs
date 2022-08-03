@@ -1,13 +1,14 @@
 import Head from "next/head";
-import React, {useState} from "react";
+import React, { useState } from "react";
+import Header from "../../components/common/Header/Header2";
 import { Tabs } from "antd";
-import self from "../../public/images/title_svg_self.svg";
+import Selflogo from "../../public/images/title_svg_self.svg";
 import SectionWrapper from "./style";
 import Image from "next/image";
 import SectionStoryDisplay from "../../components/views/SectionStoryDisplay/SectionStoryDisplay";
 function Self({ storyData, storyMetaData }) {
   const { TabPane } = Tabs;
-  const [defaultActiveKey, setDefaultActiveKey] = useState("0")
+  const [defaultActiveKey, setDefaultActiveKey] = useState("0");
   return (
     <SectionWrapper>
       <Head>
@@ -19,13 +20,13 @@ function Self({ storyData, storyMetaData }) {
           content="Stay in to know the latest beauty, grooming, health and wellness news. Subscribe to The Established newsletter delivered to your inbox every day."
         />
       </Head>
-      {/* <Header /> */}
+      <Header />
       <div className="main-cat-div">
         <div className="">
           <Tabs
             className="Biotif-Bold"
             activeKey={defaultActiveKey}
-            onChange={(key)=> setDefaultActiveKey(key)}
+            onChange={(key) => setDefaultActiveKey(key)}
           >
             <div style={{ display: "none" }}>
               <TabPane className="d-none" tab="FASHION" key="0"></TabPane>
@@ -35,15 +36,18 @@ function Self({ storyData, storyMetaData }) {
           </Tabs>
         </div>
         <div className="style-heading InterstateCompressed-Bold mtp-5">
-          <Image
-            src={self}
-            alt="self logo"
-            className="cursor-pointer"
-            priority={true}
-            onClick={() => setDefaultActiveKey("0")}
-          />
+          <div className="cursor-pointer style-heading-img">
+            <Image
+              src={Selflogo}
+              alt="self logo"
+              className="cursor-pointer"
+              priority={true}
+              layout="fill"
+              onClick={() => setDefaultActiveKey("0")}
+            />
+          </div>
         </div>
-        <SectionStoryDisplay stories={storyData} category="self" />
+        <SectionStoryDisplay stories={storyData} cat="self" />
         {storyMetaData.from + storyMetaData.size < storyMetaData.total ? (
           <div className="d-flex justify-content Biotif-Regular mtp-5 mbp-8 section-read-more">
             <button

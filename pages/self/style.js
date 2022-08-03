@@ -92,7 +92,7 @@ const SectionWrapper = styled.div`
   }
   
 
-@media(min-width:250px) and (max-width:480px){
+@media(min-width:320px) and (max-width:480px){
     .grid-new-1{
         margin-left: 5% !important;
         margin-right: 5% !important;

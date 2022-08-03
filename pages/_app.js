@@ -11,8 +11,11 @@ import '../styles/ArticleLayout.css'
 import '../styles/StyleSection.css'
 import '../styles/Advertisement.css'
 import '../styles/CultureSection.css'
+import '../styles/EstdInterview.css'
+import '../styles/SectionStory.css'
 import "react-modern-drawer/dist/index.css";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function MyApp({ Component, pageProps }) {
 
