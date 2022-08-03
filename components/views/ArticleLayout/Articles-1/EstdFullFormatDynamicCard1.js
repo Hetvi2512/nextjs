@@ -33,15 +33,6 @@ function EstdFullFormatDynamicCard1({ cards }) {
               ""
             )
           )}
-
-          {/* {
-                    storyElement.map((element)=>(
-                        element.type==='image'?<div className='col-lg-6 col-xl-6 col-md-12 col-sm-12'><div>
-                            <img width="100%" src = {`https://gumlet.assettype.com/${element['image-s3-key']}`} alt='fashion'></img>
-                            <div className='HeldaneDisplay-Regular image-text' dangerouslySetInnerHTML={{ __html: element['title']}}></div>
-                        </div></div>:""
-                        ))
-                    } */}
         </div>
       </div>
     </>

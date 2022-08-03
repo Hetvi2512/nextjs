@@ -1,6 +1,8 @@
 import React from "react";
 
 function EstdFullDynamicFormatCard2({ cards }) {
+  const storyElement = cards["story-elements"];
+
   return (
     <div>
       <div className="black-bg black-bg-m-p row row-data ma-0  pbp-10">
