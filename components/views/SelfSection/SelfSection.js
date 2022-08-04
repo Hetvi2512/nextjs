@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useRouter } from 'next/router'
 import self from '../../../public/images/title_svg_self.svg'
 import { imgBaseURL, subCatPageUrl } from "../../../helper/constants";
 import SelfWrapper from "./style";
 function SelfSection({ resp }) {
+  const router = useRouter()
   return (
     <>
       {resp?.length && (
@@ -17,7 +19,7 @@ function SelfSection({ resp }) {
                   alt="self logo"
                   className="cursor-pointer"
                   onClick={() => {
-                    props.history.push("/self");
+                    router.push('/self', undefined, { shallow: true })
                   }}
                   layout="fill"
                 />
@@ -103,7 +105,7 @@ function SelfSection({ resp }) {
               <button
                 className="read-more-btn "
                 type="submit"
-                onClick={() => props.history.push("/self")}
+                onClick={() => router.push('/self', undefined, { shallow: true })}
               >
                 READ MORE →
               </button>

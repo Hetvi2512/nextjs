@@ -1,14 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
-
+import { useRouter } from 'next/router'
 import CommunityWrapper from "./style";
 import { imgBaseURL, subCatPageUrl } from "../../../helper/constants";
 import community from "../../../public/images/title_svg_community.svg";
 import Image from "next/image";
 function CommunitySection({ resp }) {
   const Tablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
-
+  const router = useRouter()
   return (
     <div>
       {resp?.length && (
@@ -22,7 +22,8 @@ function CommunitySection({ resp }) {
                   className="cursor-pointer"
                   layout="fill"
                   onClick={() => {
-                    props.history.push("/community");
+                    router.push('/community', undefined, { shallow: true })
+
                   }}
                 />
               </div>

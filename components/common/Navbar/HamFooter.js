@@ -49,25 +49,25 @@ function HamFooter(props) {
           <div className="ham-footer-2-1-1">
             <div
               className="Biotif-Regular"
-              onClick={() => props.history.push("/about-us")}
+              onClick={() => router.push('/about-us', undefined, { shallow: true })}
             >
               ABOUT US
             </div>
             <div
               className="Biotif-Regular"
-              onClick={() => props.history.push("/news-letter")}
+              onClick={() => router.push('/news-letter', undefined, { shallow: true })}
             >
               NEWSLETTER
             </div>
             <div
               className="Biotif-Regular"
-              onClick={() => props.history.push("/partner-with-us")}
+              onClick={() => router.push('/partner-with-us', undefined, { shallow: true })}
             >
               PARTNER WITH US
             </div>
             <div
               className="Biotif-Regular"
-              onClick={() => props.history.push("/privacy-policy")}
+              onClick={() => router.push('/privacy-policy', undefined, { shallow: true })}
             >
               PRIVACY
             </div>

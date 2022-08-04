@@ -1,13 +1,15 @@
 import React from "react";
-import style from "../../../public/images/title_svg_style.svg";
+import { useRouter } from 'next/router'
 import { imgBaseURL } from "../../../helper/constants";
 import Link from "next/link";
 import { subCatPageUrl } from "../../../helper/constants";
 import Image from "next/image";
+import style from "../../../public/images/title_svg_style.svg";
 function StyleSection({ resp }) {
+  const router = useRouter()
   const handleIndividualStory = (a) => {
     console.log("onclick", a["story"]["sections"][0]);
-    props.history.push(`/${a["story"]["slug"]}`, a);
+    router.push(`/${a["story"]["slug"]}`, undefined, { shallow: true })
   };
   return (
     <>
@@ -20,7 +22,7 @@ function StyleSection({ resp }) {
                 alt="style logo"
                 className="cursor-pointer"
                 onClick={() => {
-                  props.history.push("/style");
+                  router.push('/style', undefined, { shallow: true })
                 }}
                 layout="fill"
               />

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import culture from "../../../public/images/title_svg_culture.svg";
 import AdImg from "../../../public/images/Website Ads-18.jpg";
 import { imgBaseURL } from "../../../helper/constants";
@@ -8,9 +9,10 @@ import { subCatPageUrl } from "../../../helper/constants";
 import Image from "next/image";
 
 function CultureSection({ resp }) {
+  const router = useRouter();
   const handleIndividualStory = (a) => {
     console.log("onclick", a["story"]["sections"][0]);
-    props.history.push(`/${a["story"]["slug"]}`, a);
+    router.push(`/${a["story"]["slug"]}`, undefined, { shallow: true });
   };
   return (
     <>
@@ -23,7 +25,7 @@ function CultureSection({ resp }) {
                 alt="culture logo"
                 className="cursor-pointer"
                 onClick={() => {
-                  props.history.push("/culture");
+                  router.push("/culture", undefined, { shallow: true });
                 }}
                 layout="fill"
               />
