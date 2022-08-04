@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Tabs } from "antd";
 import Head from "next/head";
+import Image from "next/image";
 import SectionWrapper from "./style";
 import Header2 from "../../components/common/Header/Header2";
 import Footer from "../../components/common/Footer";
 import culture from "../../public/images/title_svg_culture.svg";
-import Image from "next/image";
 import SectionStoryDisplay from "../../components/views/SectionStoryDisplay/SectionStoryDisplay";
 
 function Culture({ storyData, storyMetaData }) {
