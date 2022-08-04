@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React, { useState } from "react";
+import Footer from '../../components/common/Footer'
 import Header from "../../components/common/Header/Header2";
 import { Tabs } from "antd";
 import Selflogo from "../../public/images/title_svg_self.svg";
@@ -12,6 +13,8 @@ function Self({ storyData, storyMetaData }) {
   return (
     <SectionWrapper>
       <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <title>
           Latest on Beauty & Grooming Tips | Your Health & Wellness Guide
         </title>
@@ -63,6 +66,7 @@ function Self({ storyData, storyMetaData }) {
           <div className="mbp-10"></div>
         )}
       </div>
+      <Footer />
     </SectionWrapper>
   );
 }
@@ -77,7 +81,13 @@ export async function getStaticProps(context) {
   );
   const data = await response.json();
   const storyData = data?.results?.stories;
-  const storyMetaData = data?.results?.total;
+  const storyMetaData ={
+    from: 0,
+    size: data?.results?.size,
+    total:data?.results?.total
+  } 
+  console.log("storyMetaData", data?.results)
+
   return {
     props: {
       storyData,

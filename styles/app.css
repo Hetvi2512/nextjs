@@ -475,10 +475,10 @@ body{
   position: absolute !important;
   right: 0px !important;
 }
-.ant-tabs-ink-bar-animated {
+/* .ant-tabs-ink-bar-animated {
   left:50px;
   width: 42%;
-}
+} */
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #ff003d !important;
