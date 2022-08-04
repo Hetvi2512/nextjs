@@ -5,7 +5,7 @@ import InstagramIcon from "../../../public/images/insta1.svg";
 import FacebookIcon from "../../../public/images/fb1.svg";
 import LinkedinIcon from "../../../public/images/linkedinlogo.svg";
 import Established from "../../../public/images/TheEstablished.svg";
-function index(props) {
+function Footer(props) {
   const router = useRouter();
   const handleAboutUs = () => {
     console.log("clicked");
@@ -161,4 +161,4 @@ function index(props) {
   );
 }
 
-export default index;
+export default Footer;
