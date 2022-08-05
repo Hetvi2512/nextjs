@@ -9,6 +9,7 @@ import EstdInterview from '../../../components/views/ArticleLayout/Articles-2/Es
 import EstdSlideShow from '../../../components/views/ArticleLayout/Article-5/EstdSlideShow'
 import RandomLayout from '../../../components/views/ArticleLayout/RandomLayout'
 import { imgBaseURL } from "../../../helper/constants";
+import Footer from "../../../components/common/Footer";
 
 function IndividualStories({ heroData, seoData, cards }) {
   const router = useRouter();
@@ -58,6 +59,7 @@ function IndividualStories({ heroData, seoData, cards }) {
           <div style={{ height: "80vh" }}></div>
         )
       }
+      <Footer />
     </>
   );
 }

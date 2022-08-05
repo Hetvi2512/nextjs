@@ -7,9 +7,13 @@ import { Tabs } from "antd";
 import style from "../../public/images/title_svg_style.svg";
 import SectionStoryDisplay from "../../components/views/SectionStoryDisplay/SectionStoryDisplay";
 import Image from "next/image";
+import { useRouter } from "next/router";
 function Style({ storyData, storyMetaData }) {
   const { TabPane } = Tabs;
-  const [defaultActiveKey, setDefaultActiveKey] = useState("0");
+  const {query} = useRouter()
+  const {key} = query
+  const [defaultActiveKey, setDefaultActiveKey] = useState(key ? key : "0");
+
   return (
     <SectionWrapper>
       <Head>

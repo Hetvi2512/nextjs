@@ -7,9 +7,13 @@ import Selflogo from "../../public/images/title_svg_self.svg";
 import SectionWrapper from "./style";
 import Image from "next/image";
 import SectionStoryDisplay from "../../components/views/SectionStoryDisplay/SectionStoryDisplay";
+import { useRouter } from "next/router";
 function Self({ storyData, storyMetaData }) {
   const { TabPane } = Tabs;
-  const [defaultActiveKey, setDefaultActiveKey] = useState("0");
+  const {query} = useRouter()
+  const {key} = query
+  const [defaultActiveKey, setDefaultActiveKey] = useState(key ? key : "0");
+
   return (
     <SectionWrapper>
       <Head>

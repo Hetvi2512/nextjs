@@ -7,10 +7,13 @@ import Header2 from "../../components/common/Header/Header2";
 import Footer from "../../components/common/Footer";
 import culture from "../../public/images/title_svg_culture.svg";
 import SectionStoryDisplay from "../../components/views/SectionStoryDisplay/SectionStoryDisplay";
+import { useRouter } from "next/router";
 
 function Culture({ storyData, storyMetaData }) {
   const { TabPane } = Tabs;
-  const [defaultActiveKey, setDefaultActiveKey] = useState("0");
+  const {query} = useRouter()
+  const {key} = query
+  const [defaultActiveKey, setDefaultActiveKey] = useState(key ? key : "0");
 
   return (
     <SectionWrapper>
