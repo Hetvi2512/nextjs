@@ -3,8 +3,6 @@ import SocialMediaShareButton from '../../SocialMediaShareButton';
 
 function EstdFullFormatDynamicCard01({ heroData, seoData, cards }) {
     const storyElement = cards['story-elements']
-    console.log("story element ", storyElement);
-
     return (
         <div className="ptp-5 pbp-5">
         <div className="row ma-0 row-data">

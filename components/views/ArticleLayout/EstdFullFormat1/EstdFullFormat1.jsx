@@ -118,7 +118,7 @@ function EstdFullFormat1({ heroData, seoData, cards }) {
             className="a4-header-img-div"
             style={{ position: "relative", width: "100%", height: "49vw" }}
           >
-            <Image src={heroData.img} layout="fill" objectFit="cover" />
+            <Image priority={true} src={heroData.img} layout="fill" objectFit="cover" />
           </div>
         </div>
         <div className="a4-header-con">

@@ -28,7 +28,7 @@ function SearchPage(props) {
           "props",
           JSON.parse(router?.query?.searchResponse),
           JSON.parse(router?.query?.trendResponse)
-        )
+        );
         setStories(JSON.parse(router?.query?.searchResponse));
         setInputValue(router?.query?.inputValue);
         setTrendResponse(JSON.parse(router?.query?.trendResponse));
@@ -79,17 +79,17 @@ function SearchPage(props) {
             <div className="input-field-view plp-5 prp-5 d-flex">
               <div className="inside-search-tag">
                 <div className="inside-search-tag-img">
-                  <Image src={Search1} alt="search-1" layout="fill" />
+                  <Image priority={true} src={Search1} alt="search-1" layout="fill" />
                 </div>
               </div>
               <div className="form__group-1 d-flex">
                 <input
                   style={{ borderBottom: "1px solid white" }}
-                  autocomplete="off"
+                  // autocomplete="off"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   type="input"
-                  class="form__field-1 plp-1 Biotif-Regular"
+                  className="form__field-1 plp-1 Biotif-Regular"
                   placeholder="Search"
                   name="search"
                   id="search"
@@ -105,8 +105,9 @@ function SearchPage(props) {
             </div>
             <div className="Biotif-SemiBold plp-5 prp-5 pbp-2 search-trending-div grey-text">
               Trending:
-              {trendResponse?.slice(0, 3).map((item) => (
+              {trendResponse?.slice(0, 3).map((item, index) => (
                 <span
+                  key={index}
                   onClick={() => {
                     handleTrendingStory(item);
                   }}
@@ -139,8 +140,8 @@ function SearchPage(props) {
           <div className="mtp-5 mbp-10">
             <div className="grid-new-1 mlp-15 mrp-15 pbp-3">
               {stories?.length >= 1 ? (
-                stories?.map((story) => (
-                  <div className="cursor-pointer">
+                stories?.map((story, index) => (
+                  <div key={index} className="cursor-pointer">
                     <Link href={`/${story["slug"]}`}>
                       <div className="section-story-display-img">
                         <img width="100%" src={alternateHeroImg(story)}></img>

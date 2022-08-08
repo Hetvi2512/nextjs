@@ -159,7 +159,6 @@ function Style({ data, MetaData }) {
 export default Style;
 
 export async function getStaticProps(context) {
-  console.log("GENERATING/ REGENERATING PAGES For SELF======================");
   const response = await fetch(
     `http://theestablished.quintype.io/api/v1/search?section-id=38240&offset=0&limit=17&sort=latest-published`
   );
@@ -170,7 +169,6 @@ export async function getStaticProps(context) {
     size: data?.results?.size,
     total: data?.results?.total,
   };
-  console.log("storyMetaData", storyMetaData);
   return {
     props: {
       data: storyData,

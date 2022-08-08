@@ -47,7 +47,6 @@ function EstdFullFormatDynamic({ heroData, seoData, cards }) {
         }
       }
     });
-    console.log("cardtype", cardType);
     setcardtype(cardType);
     setDisplayFlag(true);
   }, []);

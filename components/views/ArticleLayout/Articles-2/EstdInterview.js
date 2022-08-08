@@ -14,7 +14,6 @@ function EstdInterview({ heroData, seoData, cards }) {
     window.scroll(0, 0);
     let tempcont = 0;
     cards.map((card, index) => {
-      console.log("alternateheroimage" in card.metadata.attributes);
       if (Object.keys(card.metadata.attributes).length >= 1) {
         if ("alternateheroimage" in card.metadata.attributes) {
           if (card.metadata.attributes.alternateheroimage[0] === "yes") {
@@ -58,7 +57,6 @@ function EstdInterview({ heroData, seoData, cards }) {
         });
       }
     });
-    console.log("cardtype", cardType);
     setcardtype(cardType);
     setDisplayFlag(true);
   }, []);

@@ -31,7 +31,7 @@ function Footer(props) {
                 }
               }}
             >
-              <Image src={Established} alt="" className="footer-estd-logo" />
+              <Image priority={true} src={Established} alt="" className="footer-estd-logo" />
             </div>
             <div className="footer-cat">
               <div

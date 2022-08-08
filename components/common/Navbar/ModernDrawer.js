@@ -31,7 +31,6 @@ function ModernDrawer({ searchVisible, onCloseSearch }) {
     fetcher
   );
   function handleEnter(e) {
-    console.log("enter", trendResponse);
     if (e.key === "Enter") {
       e.preventDefault(); // Ensure it is only this code that runs
       router.push(
@@ -64,7 +63,7 @@ function ModernDrawer({ searchVisible, onCloseSearch }) {
       >
         <div className="input-field-view plp-5 d-flex">
           <div className={styles.insideSearchTag}>
-            <Image src={SearchIcon} alt="search" width={20} height={20} />
+            <Image priority={true} src={SearchIcon} alt="search" width={20} height={20} />
           </div>
           <div className="form__group-1 d-flex">
             <input

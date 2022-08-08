@@ -37,7 +37,7 @@ function SocialMediaShareButton({ title, description }) {
         source={windowLocation}
       >
         <div className="eff1-social-images cursor-pointer">
-          <Image src={Instagram} alt="Instagram" />
+          <Image priority={true} src={Instagram} alt="Instagram" />
         </div>
       </LinkedinShareButton>
       <TwitterShareButton

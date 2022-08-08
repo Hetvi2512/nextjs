@@ -35,7 +35,7 @@ function Navbar2(props) {
               />
             </div>
           ) : (
-            <Image id="new-image" src={Logo2} alt="the-established" />
+            <Image priority={true} id="new-image" src={Logo2} alt="the-established" />
           )}
           {/* {PhoneView ? (
             <img width="100%" src={Logo1} alt="the-established"></img>

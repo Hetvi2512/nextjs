@@ -17,7 +17,7 @@ function AdPillar(img, url, linkStatus) {
     >
       <div className="culture-pillar-img">
         <div className="culture-pillar-img-img">
-          <Image src={AdImg} layout="fill"/>
+          <Image priority={true} src={AdImg} layout="fill"/>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ function Advertisement({ img, url, linkStatus }) {
           }
         }}
       >
-        <Image src={img} alt="" />
+        <Image priority={true} src={img} alt="" />
       </div>
     </div>
   );

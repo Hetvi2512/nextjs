@@ -32,15 +32,15 @@ function HamFooter(props) {
         </div>
         <div className="ham-footer-logo">
           <div className="ham-footer-logo-img">
-            <Image src={FacebookIcon} layout="fill" objectFit="contain" />
+            <Image priority={true} src={FacebookIcon} layout="fill" objectFit="contain" />
           </div>
           <div className="ham-footer-logo-img">
             {" "}
-            <Image src={InstagramIcon} layout="fill" objectFit="contain" />
+            <Image priority={true} src={InstagramIcon} layout="fill" objectFit="contain" />
           </div>
           <div className="ham-footer-logo-img">
             {" "}
-            <Image src={LinkedinIcon} layout="fill" objectFit="contain" />
+            <Image priority={true} src={LinkedinIcon} layout="fill" objectFit="contain" />
           </div>
         </div>
       </div>
