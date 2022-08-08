@@ -1,0 +1,37 @@
+.news-letter-main{
+background-color: white;
+padding:5% 2% ;
+border: 10px solid #FF003D;
+}
+
+.newsletter-main-img{
+    width: 100%;
+    /* position: relative; */
+}
+.newsletter-main-img>img{
+    width: 100%;
+    /* height: 150vh; */
+    object-fit: cover;
+}
+.newsletter-main-div{
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120vh;
+    background-image: url('../public/images/newsletter-1.jpg');
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+
+@media (max-width: 575px){
+    .newsletter-main-img >img{
+        height: 100vh;
+    }
+    .news-letter-main{
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+}

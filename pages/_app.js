@@ -13,6 +13,8 @@ import '../styles/Advertisement.css'
 import '../styles/CultureSection.css'
 import '../styles/EstdInterview.css'
 import '../styles/SectionStory.css'
+import '../styles/Subscribe.css'
+import '../styles/NewsLetter.css'
 import "react-modern-drawer/dist/index.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
