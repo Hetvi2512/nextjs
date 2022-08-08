@@ -1,6 +1,10 @@
-import moment from "moment";
 import React, { useEffect, useState } from "react";
-
+import moment from "moment";
+import EstdFullFormat2Card1 from "./EstdFullFormat2Card1";
+import EstdFullFormat2Card2 from "./EstdFullFormat2Card2";
+import EstdFullFormat2Card3 from "./EstdFullFormat2Card3";
+import ReadMoreSection from "../ReadMoreSection";
+import SocialMediaShareButton from "../../SocialMediaShareButton";
 function EstdFullFormat2({ heroData, seoData, cards }) {
   const cardType = [];
   const [cardtype, setcardtype] = useState([]);
@@ -104,6 +108,32 @@ function EstdFullFormat2({ heroData, seoData, cards }) {
           <img src={heroData.img} alt="" />
         </div>
       </div>
+      <div className="a5-p1-h1-bottom   mtp-3 mbp-3">
+        <SocialMediaShareButton />
+      </div>
+      {displayFlag &&
+        cardtype.map((card, index) =>
+          card === "card1" ? (
+            <EstdFullFormat2Card1 cards={cards[index]} />
+          ) : card === "card2" ? (
+            <EstdFullFormat2Card2 cards={cards[index]} />
+          ) : card === "card3" ? (
+            <EstdFullFormat2Card3
+              cardBgColor={cardBgColor[index]}
+              cards={cards[index]}
+            />
+          ) : (
+            ""
+          )
+        )}
+      {displayFlag &&
+        cardtype.map((card, index) =>
+          card === "also-read" ? (
+            <ReadMoreSection storyElement={cards[index]["story-elements"]} />
+          ) : (
+            ""
+          )
+        )}
     </div>
   );
 }
