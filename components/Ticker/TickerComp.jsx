@@ -1,8 +1,11 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-
-function TickerComp({resp}) {
-    
+import { useRouter } from "next/router";
+function TickerComp({ resp }) {
+  const router = useRouter();
+  const handleIndividualStory = (a) => {
+    router.push(`/${a["story"]["slug"]}`, undefined, { shallow: true });
+  };
   return (
     <div
       style={{
