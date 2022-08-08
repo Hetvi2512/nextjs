@@ -893,8 +893,10 @@ body{
   display: flex;
   align-items: center;
 }
-.inside-search-tag > img {
-  height: 20px;
+.inside-search-tag-img {
+  position: relative;
+  height: 20px !important;
+  width: 20px;
 }
 .slick-prev {
   position: absolute !important;
