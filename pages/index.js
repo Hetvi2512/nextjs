@@ -1,9 +1,58 @@
 import Head from "next/head";
 import HomePage from "../components/HomePage";
 import { baseUrl } from "../helper/constants";
-
+import Modal from 'react-modal';
+import { AiOutlineClose } from "react-icons/ai";
+import Cookies from 'universal-cookie';
+import Mailchimp from '../components/views/Mailchimp/Mailchimp'
+import { useEffect, useState } from "react";
+const customStyles = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'transparent'
+  },
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 export default function Home({ stories, combinedData1, combinedData2 }) {
-  
+  const cookies = new Cookies();
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const checkCookie =(value)=>{
+    return cookies.get(value)
+  }
+  useEffect(() => {
+    if(typeof checkCookie('ReactModalPopup') =='undefined'){
+      cookies.set('ReactModalPopup', {shouldShow:false},{
+        path: "/",
+        maxAge: 83400
+    });
+      openModal();
+    }
+  }, [])
+  const disableScroll = () => { document.body.style.overflow = 'hidden' }
+  const enableScroll = () => { document.body.style.overflowY = 'scroll' }
+
+  function openModal() {
+    // e.preventDefault();
+    setTimeout(() => {
+      setIsOpen(true);
+    }, 30000);
+  }
+
+  function closeModal(e) {
+    e.preventDefault();
+    setIsOpen(false);
+  }
   return (
     <div>
       <Head>
@@ -18,6 +67,23 @@ export default function Home({ stories, combinedData1, combinedData2 }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="modal-div" style={{ zIndex: 100 }}>
+        <Modal
+          isOpen={modalIsOpen}
+          //onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+          ariaHideApp={false}
+          onAfterOpen={disableScroll}
+          onAfterClose={enableScroll}
+          preventScroll={true}
+          shouldCloseOnOverlayClick={false}
+          contentLabel="Example Modal"
+        >
+          <div className="d-flex justify-content-end cursor-pointer" onClick={(e)=>closeModal(e)}><AiOutlineClose size={'2em'} /></div>
+          <Mailchimp />
+        </Modal>
+      </div>
        <HomePage stories={stories} combinedData1={combinedData1} combinedData2={combinedData2} />
 
     </div>
