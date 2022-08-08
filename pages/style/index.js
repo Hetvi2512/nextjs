@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header2 from "../../components/common/Header/Header2";
 import SectionWrapper from "./style";
 import Footer from "../../components/common/Footer";
@@ -8,12 +8,88 @@ import style from "../../public/images/title_svg_style.svg";
 import SectionStoryDisplay from "../../components/views/SectionStoryDisplay/SectionStoryDisplay";
 import Image from "next/image";
 import { useRouter } from "next/router";
-function Style({ storyData, storyMetaData }) {
+import useSWR from "swr";
+import { categoryID } from "../../helper/constants";
+function Style({ data, MetaData }) {
   const { TabPane } = Tabs;
-  const {query} = useRouter()
-  const {key} = query
+  const { query } = useRouter();
+  const { key } = query;
+  const [storyData, setStoryData] = useState(data);
+  const [storyMetaData, setStoryMetaData] = useState(MetaData);
   const [defaultActiveKey, setDefaultActiveKey] = useState(key ? key : "0");
+  const [isGetMoreStory, setIsGetMoreStory] = useState(0);
 
+  const getMoreStories = () => {
+    setIsGetMoreStory((previousStory) => previousStory + 1);
+  };
+  const fetcher = async () => {
+    let url = "";
+    if (defaultActiveKey === "1") {
+      url = `/api/v1/readMoreSection?sectionId=${categoryID.fashionID}&offset=0&limit=15`;
+    } else if (defaultActiveKey === "2") {
+      url = `/api/v1/readMoreSection?sectionId=${categoryID.sneakersID}&offset=0&limit=15`;
+    } else if (defaultActiveKey === "3") {
+      url = `/api/v1/readMoreSection?sectionId=${categoryID.watchesID}&offset=0&limit=15`;
+    } else {
+      url = `/api/v1/readMoreSection?sectionId=${categoryID.styleID}&offset=0&limit=15`;
+    }
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  };
+  const { data: res, error } = useSWR(
+    defaultActiveKey > 0 ? defaultActiveKey : null,
+    fetcher
+  );
+  useEffect(() => {
+    if (defaultActiveKey > 0) {
+      setStoryMetaData({
+        from: 0,
+        size: res?.results.size,
+        total: res?.results.total,
+      });
+      setStoryData(res?.results?.stories);
+    }
+  }, [res]);
+  const moreStoriesFetcher = async () => {
+    let url = "";
+    if (defaultActiveKey === "1") {
+      url = `/api/v1/readMoreSection?sectionId=${
+        categoryID.fashionID
+      }&offset=${storyMetaData.from + storyMetaData.size}&limit=15`;
+    } else if (defaultActiveKey === "2") {
+      url = `/api/v1/readMoreSection?sectionId=${
+        categoryID.sneakersID
+      }&offset=${storyMetaData.from + storyMetaData.size}&limit=15`;
+    } else if (defaultActiveKey === "3") {
+      url = `/api/v1/readMoreSection?sectionId=${
+        categoryID.watchesID
+      }&offset=${storyMetaData.from + storyMetaData.size}&limit=15`;
+    } else {
+      url = `/api/v1/readMoreSection?sectionId=${
+        categoryID.styleID
+      }&offset=${storyMetaData.from + storyMetaData.size}&limit=15`;
+    }
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  };
+  const { data: moreStories, error: err } = useSWR(
+    isGetMoreStory > 0 ? isGetMoreStory : null,
+    moreStoriesFetcher
+  );
+
+  useEffect(() => {
+    if (isGetMoreStory && moreStories) {
+      console.log("moreStories",moreStories)
+      setStoryMetaData({
+        from: moreStories?.results.from,
+        size: moreStories?.results.size,
+        total: moreStories?.results.total,
+      });
+      setStoryData([...storyData, ...moreStories?.results?.stories]);
+    }
+  }, [moreStories]);
   return (
     <SectionWrapper>
       <Head>
@@ -97,8 +173,8 @@ export async function getStaticProps(context) {
   console.log("storyMetaData", storyMetaData);
   return {
     props: {
-      storyData,
-      storyMetaData,
+      data: storyData,
+      MetaData: storyMetaData,
     },
     revalidate: 50,
   };

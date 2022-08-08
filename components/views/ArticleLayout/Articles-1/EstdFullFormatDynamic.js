@@ -14,9 +14,7 @@ function EstdFullFormatDynamic({ heroData, seoData, cards }) {
   useEffect(() => {
     window.scroll(0, 0);
     cards.map((card, index) => {
-      console.log("cardtype",index)
       if ("alternateheroimage" in card.metadata.attributes) {
-        console.log("wroking alternateheroimage");
       } else {
         card["story-elements"].map((element) => {
           if (
@@ -27,7 +25,6 @@ function EstdFullFormatDynamic({ heroData, seoData, cards }) {
             cardType[index] = "card01";
             firstStory = false;
           } else if (element.type === "image" && element.subtype === null && index!=0) {
-            console.log("cardtype index",i, index)
             cardType[index] = "card1";
             i++;
           } else if (

@@ -12,7 +12,6 @@ import Image from "next/image";
 function SocialMediaShareButton({ title, description }) {
   const [windowLocation, setWindowLocation] = useState();
   useEffect(() => {
-    console.log("LOCATION", window?.location?.href);
     setWindowLocation(window?.location?.href);
   }, []);
   return (

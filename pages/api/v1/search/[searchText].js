@@ -7,7 +7,7 @@ export default function handler(req, res) {
   const { searchText } = req.query;
   console.log(searchText);
   if (searchText.length > 0) {
-    axios
+    return axios
       .get(`${baseUrl}/api/v1/search/`, {
         params: { q: searchText },
       })
@@ -18,5 +18,7 @@ export default function handler(req, res) {
         console.log("search api error", e);
         return res.status(500).send(e);
       });
+  } else {
+    return res.send("No Data Found");
   }
 }

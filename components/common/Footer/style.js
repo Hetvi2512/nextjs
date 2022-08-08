@@ -21,7 +21,7 @@ padding-top:2%;
 .footer-cat{
   padding-top:10px;
   display:flex;
-  justify-content:center;
+  justify-content:unset;
 }
 .footer-cat > div{
   font-family: 'Biotif-Regular';
@@ -37,7 +37,9 @@ padding-top:2%;
   align-items: center;
 }
 .footer-estd-logo{
-  width:400px;
+  width:400px !important;
+  margin:0px !important;
+  min-width: 0% !important;
 }
 .footer-cat > div{
   font-size:16px;
@@ -73,10 +75,14 @@ padding-top:2%;
 }
 @media(min-width:250px) and (max-width:480px){
   .footer-estd-logo{
-    width:250px;
+    width:250px !important;
+  margin:0px !important;
+  min-width: 0% !important;
+  left:15% !important;
   }
   .footer-cat{
     display:none;
+    justify-content:center
   }
   .footer-theestd{
     display:none;
@@ -102,9 +108,21 @@ padding-top:2%;
     }
 
 }
+@media(min-width:776px) and (max-width:993px){
+  
+  .footer-cat{
+    justify-content:center
+  }
+}
 @media(min-width:481px) and (max-width:775px){
   .footer-estd-logo{
-    width:300px;
+    width:300px !important;
+  margin:0px !important;
+  min-width: 0% !important;
+  left:23% !important;
+  }
+  .footer-cat{
+    justify-content:center
   }
   .footer-cat > div{
     font-size:10px;
@@ -226,6 +244,7 @@ padding-top:2%;
     .email-text {
       font-size: 20px;
     }
+    
   }
   @media (max-width: 992px) {
     .footer {
@@ -249,7 +268,9 @@ padding-top:2%;
     .remove-padding {
       padding-right: 0px !important;
     }
-
+    .footer-cat{
+      justify-content:center
+    }
   }
 
 
@@ -299,10 +320,13 @@ padding-top:2%;
     }
   }
 
-  @media(min-width:768px) and (max-width:970px){
+  @media(min-width:776px) and (max-width:970px){
       .the-established{
         text-align:center;
         bottom:10px;
+      }
+      .footer-cat{
+        justify-content:center
       }
     .sub-established{
       display:flex;
@@ -312,6 +336,7 @@ padding-top:2%;
     .copyrights{
     justify-content: center !important;
   }
+  
   }
   @media(min-width:1024px) and (max-width:1200px){
     .the-established{

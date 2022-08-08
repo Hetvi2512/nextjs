@@ -1,12 +1,13 @@
 import useSWR from "swr";
 import Image from "next/image";
+import { useRouter } from 'next/router'
 import React, { useState } from "react";
 import Drawer from "react-modern-drawer";
 import styles from "./ModernDrawer.module.css";
 import SearchIcon from "../../../public/images/Search-test.png";
 function ModernDrawer({ searchVisible, onCloseSearch }) {
   const [inputValue, setInputValue] = useState("");
-
+  const router = useRouter()
   const trendFetcher = async () => {
     const response = await fetch(`/api/v1/collection/breaking-news`);
     const data = await response.json();
@@ -16,14 +17,18 @@ function ModernDrawer({ searchVisible, onCloseSearch }) {
     "TrendData",
     trendFetcher
   );
-  console.log("trendResponse",trendResponse?.items)
+  const handleIndividualStory = (a) => {
+    router.push(`/${a["slug"]}`, undefined, { shallow: true })
+  };
+  const handleTrendingStory = (a) => {
+    router.push(`/${a["story"]["slug"]}`, undefined, { shallow: true })
+  };
   const fetcher = async () => {
     const response = await fetch(`/api/v1/search/${inputValue}`);
     const data = await response.json();
     return data;
   };
   const { data: searchResponse, error } = useSWR(inputValue.length > 0 ? inputValue : null, fetcher );
-  console.log("data", searchResponse);
   return (
     <>
       <Drawer
@@ -57,9 +62,9 @@ function ModernDrawer({ searchVisible, onCloseSearch }) {
                   ? searchResponse?.results?.stories.slice(0, 5).map((item,index) => (
                       <div
                           key={index}
-                        // onClick={() => {
-                        //   handleIndividualStory(item);
-                        // }}
+                        onClick={() => {
+                          handleIndividualStory(item);
+                        }}
                         className="text-white search-result-div plp-5 prp-5 cursor-pointer Biotif-SemiBold pbp-1"
                       >
                         {item.headline}
@@ -68,9 +73,9 @@ function ModernDrawer({ searchVisible, onCloseSearch }) {
                   : trendResponse?.items?.slice(0, 5).map((item,index) => (
                       <div
                         key={index}
-                        // onClick={() => {
-                        //   handleTrendingStory(item);
-                        // }}
+                        onClick={() => {
+                          handleTrendingStory(item);
+                        }}
                         className="text-white search-result-div plp-5 cursor-pointer Biotif-SemiBold pbp-1"
                       >
                         {item.story.headline}

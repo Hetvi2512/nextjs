@@ -97,7 +97,7 @@ p{
         padding-left:0%;
     }
     .privacy-policy-description{
-    font-size: 20px;
+    font-size: 26px;
     padding-right: 10%;
     color:#fff;
     padding-top:2%;
@@ -112,7 +112,7 @@ p{
         padding-left:0%;
     }
     .privacy-policy-description{
-    font-size: 22px;
+    font-size: 26px;
     padding-right: 10%;
     color:#fff;
     padding-top:2%;

@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import moment from "moment";
+import React, { useEffect, useState } from "react";
 
 function EstdFullFormat2({ heroData, seoData, cards }) {
   const cardType = [];
@@ -82,7 +83,7 @@ function EstdFullFormat2({ heroData, seoData, cards }) {
           <div className="a5-p1-h1-bottom">
             <div className="a5-p1-h1-auth Biotif-Book">By {heroData.auth}</div>
             <div className="a5-p1-h1-date Biotif-Book">
-              {moment(data["story"]["published-at"]).format("DD MMMM, YYYY")}
+              {moment(heroData["publishedAt"]).format("DD MMMM, YYYY")}
             </div>
           </div>
         </div>
@@ -95,7 +96,7 @@ function EstdFullFormat2({ heroData, seoData, cards }) {
           <div className="a5-p1-h1-bottom">
             <div className="a5-p1-h1-auth Biotif-Book">By {heroData.auth}</div>
             <div className="a5-p1-h1-date Biotif-Book">
-              {moment(data["story"]["published-at"]).format("DD MMMM, YYYY")}
+              {moment(heroData["publishedAt"]).format("DD MMMM, YYYY")}
             </div>
           </div>
         </div>

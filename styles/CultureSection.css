@@ -211,8 +211,10 @@
     text-align: center;
     margin-top: 10%;
   }
-  .culture-pillar-img img{
+  .culture-pillar-img-img{
+    position: relative;
     width: 100%;
+    height: 50vh;
   }
   .culture-pillar-cont{
     border: 1px solid grey;
@@ -226,6 +228,11 @@
     .culture-heading-img {
       position: relative;
       height:38px;
+    }
+    .culture-pillar-img-img{
+      position: relative;
+      width: 100%;
+      height: 80vh;
     }
     .culture-content-main {
       grid-template-columns: auto;
@@ -411,6 +418,11 @@
       position: relative;
       height:50px;
     }
+    .culture-pillar-img-img{
+      position: relative;
+      width: 100%;
+      height: 80vh;
+    }
     .culture-content-main {
       grid-template-columns: auto;
       margin-left: 15%;
@@ -595,7 +607,15 @@
       position: relative;
       height:80px;
     }
-  
+    .culture-pillar-img-img{
+      position: relative;
+      width: 100%;
+      height: 98vh;
+    }
+
+    .culture-pillar-img-img > span {
+      position: relative !important; 
+      }
     .culture-content-main {
       margin-left: 30px !important;
     }

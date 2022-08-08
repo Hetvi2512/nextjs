@@ -21,7 +21,6 @@ function Hambar(props) {
   };
   const onClose = () => {
     setVisible(false);
-    console.log("clicked");
     // setCategory("");
   };
   return (

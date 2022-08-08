@@ -144,7 +144,7 @@ const AboutUsWrapper = styled.div`
         padding-left:10%;
     }
     .about-us-description{
-    font-size: 20px;
+    font-size: 30px;
     padding-right: 10%;
     color:#fff;
     // padding-top:2%;
@@ -163,7 +163,7 @@ const AboutUsWrapper = styled.div`
         padding-left:10%;
     }
     .about-us-description{
-    font-size: 20px;
+    font-size: 30px;
     padding-right: 10%;
     color:#fff;
     // padding-top:2%;

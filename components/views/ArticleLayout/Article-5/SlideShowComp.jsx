@@ -16,7 +16,6 @@ function SlideShowComp({images}) {
             }
             else {
                 const temp = (nextImage + 1);
-                console.log(temp);
                 setNextImage(temp);
             }
         }, 0);
@@ -35,7 +34,6 @@ function SlideShowComp({images}) {
             }
             else {
                 const temp = (nextImage - 1);
-                console.log(temp);
                 setNextImage(temp);
             }
         }, 0);

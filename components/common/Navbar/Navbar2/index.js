@@ -10,7 +10,6 @@ import { useRouter } from "next/router";
 
 function Navbar2(props) {
   const PhoneView = useMediaQuery({ minWidth: 300, maxWidth: 480 });
-  console.log("PhoneView", PhoneView)
   const router = useRouter();
   return (
     <StyleWrapper>

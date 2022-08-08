@@ -4,14 +4,14 @@ import axios from "axios";
 import { baseUrl } from "../../../../helper/constants";
 
 export default function handler(req, res) {
-  const { collectionId } = req.query;
-  console.log(collectionId);
-
+  const { sectionId, offset, limit } = req.query;
+  console.log(sectionId, offset, limit);
   return axios
-    .get(`${baseUrl}/api/v1/collections/${collectionId}`)
+    .get(
+      `${baseUrl}/api/v1/search/?section-id=${sectionId}&offset=${offset}&limit=${limit}&sort=latest-published`
+    )
     .then((response) => {
-      console.log("data from apicall ", collectionId);
-      return res.json(response.data);
+      return res.status(200).send(response.data);
     })
     .catch((e) => {
       console.log("search api error", e);

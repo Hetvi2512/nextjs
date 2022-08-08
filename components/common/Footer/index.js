@@ -5,15 +5,14 @@ import InstagramIcon from "../../../public/images/insta1.svg";
 import FacebookIcon from "../../../public/images/fb1.svg";
 import LinkedinIcon from "../../../public/images/linkedinlogo.svg";
 import Established from "../../../public/images/TheEstablished.svg";
+import Image from "next/image";
 function Footer(props) {
   const router = useRouter();
   const handleAboutUs = () => {
-    console.log("clicked");
     router.push("/about-us", undefined, { shallow: true });
   };
 
   const handlePrivacy = () => {
-    console.log("clicked");
     router.push("/privacy-policy", undefined, { shallow: true });
   };
 
@@ -32,7 +31,7 @@ function Footer(props) {
                 }
               }}
             >
-              <img src={Established} alt="" className="footer-estd-logo" />
+              <Image src={Established} alt="" className="footer-estd-logo" />
             </div>
             <div className="footer-cat">
               <div
@@ -75,43 +74,74 @@ function Footer(props) {
           <div>
             <div className="d-flex s-icon-div">
               <div>
-                <img
-                  onClick={() =>
-                    window.open(
-                      "https://www.facebook.com/theestablishedcom",
-                      "_blank"
-                    )
-                  }
-                  src={FacebookIcon}
-                  alt="FB icon"
-                  className="cursor-pointer"
-                ></img>
+              <div
+                  style={{
+                    width: "29px",
+                    height: "30px",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    onClick={() =>
+                      window.open(
+                        "https://www.facebook.com/theestablishedcom",
+                        "_blank"
+                      )
+                    }
+                    src={FacebookIcon}
+                    alt="FB icon"
+                    layout="fill"
+                    objectFit="contain"
+                    className="cursor-pointer"
+                  />
+                </div>
+               
               </div>
               <div>
-                <img
-                  onClick={() =>
-                    window.open(
-                      "https://instagram.com/theestablished_",
-                      "_blank"
-                    )
-                  }
-                  src={InstagramIcon}
-                  alt="Insta icon"
-                  className="cursor-pointer"
-                ></img>
+                <div
+                  style={{
+                    width: "29px",
+                    height: "30px",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    onClick={() =>
+                      window.open(
+                        "https://instagram.com/theestablished_",
+                        "_blank"
+                      )
+                    }
+                    src={InstagramIcon}
+                    alt="Insta icon"
+                    layout="fill"
+                    objectFit="contain"
+                    className="cursor-pointer"
+                  />
+                </div>
               </div>
               <div>
-                <img
-                  onClick={() =>
-                    window.open(
-                      "https://in.linkedin.com/company/theestablished",
-                      "_blank"
-                    )
-                  }
-                  src={LinkedinIcon}
-                  alt="Linkedin icon"
-                  className="cursor-pointer"
-                ></img>
+                <div
+                  style={{
+                    width: "29px",
+                    height: "30px",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    onClick={() =>
+                      window.open(
+                        "https://in.linkedin.com/company/theestablished",
+                        "_blank"
+                      )
+                    }
+                    src={LinkedinIcon}
+                    layout="fill"
+                    objectFit="contain"
+                    alt="Linkedin icon"
+                    className="cursor-pointer"
+                  />
+                </div>
               </div>
               {/* <img
               src={Twitter}

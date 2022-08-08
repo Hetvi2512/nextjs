@@ -13,7 +13,7 @@ import { imgBaseURL, subCatPageUrl } from "../../../helper/constants";
 function SectionStoryDisplay({ stories, cat }) {
   const alternateHeroImg = (story) => {
     let heroImage = imgBaseURL + story["hero-image-s3-key"];
-    console.log("story images", story.alternative);
+   
     if (story["alternative"]) {
       if ("home" in story["alternative"]) {
         if ("default" in story["alternative"]["home"]) {
@@ -44,15 +44,15 @@ function SectionStoryDisplay({ stories, cat }) {
   };
   return (
     <div className="">
-      {stories.length === 0 ? (
+      {stories?.length === 0 ? (
         <div
           className="text-center mtp-5 mbp-5"
           style={{ height: "80vh" }}
         ></div>
-      ) : stories.length === 1 ? (
+      ) : stories?.length === 1 ? (
         <div>
           <div className="sd-one-story-only">
-            {stories.map((story, index) => (
+            {stories?.map((story, index) => (
               <div key={index} className="cursor-pointer">
                 <Link href={`/${story["slug"]}`}>
                   <div>
@@ -141,10 +141,10 @@ function SectionStoryDisplay({ stories, cat }) {
             )}
           </div>
         </div>
-      ) : stories.length >= 2 ? (
+      ) : stories?.length >= 2 ? (
         <div>
           <div className="grid-view mlp-15 mrp-15 mbp-5">
-            {stories.slice(0, 2).map((story, index) => (
+            {stories?.slice(0, 2).map((story, index) => (
               <div key={index} className="cursor-pointer">
                 <Link href={`/${story["slug"]}`}>
                   <div>
@@ -233,7 +233,7 @@ function SectionStoryDisplay({ stories, cat }) {
           </div>
           <div className="pink-border mtp-5"></div>
           <div className="grid-new-1 mlp-15 mrp-15">
-            {stories.slice(2).map((story, index) => (
+            {stories?.slice(2).map((story, index) => (
               <div key={index} className="cursor-pointer">
                 <Link href={`/${story["slug"]}`}>
                   <div className="section-story-display-img">

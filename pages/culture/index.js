@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tabs } from "antd";
 import Head from "next/head";
 import Image from "next/image";
@@ -8,13 +8,95 @@ import Footer from "../../components/common/Footer";
 import culture from "../../public/images/title_svg_culture.svg";
 import SectionStoryDisplay from "../../components/views/SectionStoryDisplay/SectionStoryDisplay";
 import { useRouter } from "next/router";
+import useSWR from "swr";
+import { categoryID } from "../../helper/constants";
 
-function Culture({ storyData, storyMetaData }) {
+function Culture({ data, MetaData }) {
   const { TabPane } = Tabs;
-  const {query} = useRouter()
-  const {key} = query
+  const { query } = useRouter();
+  const { key } = query;
+  const [storyData, setStoryData] = useState(data);
+  const [storyMetaData, setStoryMetaData] = useState(MetaData);
   const [defaultActiveKey, setDefaultActiveKey] = useState(key ? key : "0");
+  const [isGetMoreStory, setIsGetMoreStory] = useState(0);
 
+  const getMoreStories = () => {
+    setIsGetMoreStory((previousStory) => previousStory + 1);
+  };
+  const fetcher = async () => {
+    let url = "";
+    if (defaultActiveKey === "1") {
+      url = `/api/v1/readMoreSection?sectionId=${categoryID.autoID}&offset=0&limit=15`;
+    } else if (defaultActiveKey === "2") {
+      url = `/api/v1/readMoreSection?sectionId=${categoryID.entertainmentID}&offset=0&limit=15`;
+    } else if (defaultActiveKey === "3") {
+      url = `/api/v1/readMoreSection?sectionId=${categoryID.gamingID}&offset=0&limit=15`;
+    } else if (defaultActiveKey === "4") {
+      url = `/api/v1/readMoreSection?sectionId=${categoryID.livingID}&offset=0&limit=15`;
+    } else {
+      url = `/api/v1/readMoreSection?sectionId=${categoryID.cultureID}&offset=0&limit=15`;
+    }
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  };
+  const { data: res, error } = useSWR(
+    defaultActiveKey > 0 ? defaultActiveKey : null,
+    fetcher
+  );
+  useEffect(() => {
+    if (defaultActiveKey > 0) {
+      setStoryMetaData({
+        from: 0,
+        size: res?.results.size,
+        total: res?.results.total,
+      });
+      setStoryData(res?.results?.stories);
+    }
+  }, [res]);
+  const moreStoriesFetcher = async () => {
+    let url = "";
+    if (defaultActiveKey === "1") {
+      url = `/api/v1/readMoreSection?sectionId=${
+        categoryID.autoID
+      }&offset=${storyMetaData.from + storyMetaData.size}&limit=15`;
+    } else if (defaultActiveKey === "2") {
+      url = `/api/v1/readMoreSection?sectionId=${
+        categoryID.entertainmentID
+      }&offset=${storyMetaData.from + storyMetaData.size}&limit=15`;
+    } else if (defaultActiveKey === "3") {
+      url = `/api/v1/readMoreSection?sectionId=${
+        categoryID.gamingID
+      }&offset=${storyMetaData.from + storyMetaData.size}&limit=15`;
+    } else if (defaultActiveKey === "4") {
+      url = `/api/v1/readMoreSection?sectionId=${
+        categoryID.livingID
+      }&offset=${storyMetaData.from + storyMetaData.size}&limit=15`;
+    } else {
+      url = `/api/v1/readMoreSection?sectionId=${
+        categoryID.cultureID
+      }&offset=${storyMetaData.from + storyMetaData.size}&limit=15`;
+    }
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  };
+  const { data: moreStories, error: err } = useSWR(
+    isGetMoreStory > 0 ? isGetMoreStory : null,
+    moreStoriesFetcher
+  );
+
+  useEffect(() => {
+    if (isGetMoreStory && moreStories) {
+      console.log("moreStories",moreStories)
+      setStoryMetaData({
+        from: moreStories?.results.from,
+        size: moreStories?.results.size,
+        total: moreStories?.results.total,
+      });
+      setStoryData([...storyData, ...moreStories?.results?.stories]);
+    }
+  }, [moreStories]);
   return (
     <SectionWrapper>
       <Head>
@@ -93,8 +175,8 @@ export async function getStaticProps(context) {
   console.log("storyMetaData", storyMetaData);
   return {
     props: {
-      storyData,
-      storyMetaData,
+      data: storyData,
+      MetaData: storyMetaData,
     },
     revalidate: 50,
   };
