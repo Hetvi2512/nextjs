@@ -88,7 +88,6 @@ export async function getStaticProps(context) {
   );
   const individualStory = await response.json();
   const cards = individualStory["story"]["cards"];
-  console.log("individualStory", individualStory);
   const heroData = {
     img:
       "https://gumlet.assettype.com/" +
@@ -155,11 +154,9 @@ export async function getStaticProps(context) {
     keywords: "The Established",
   };
   if ("seo" in individualStory["story"]) {
-    console.log("in seo");
     if ("meta-title" in individualStory["story"]["seo"]) {
       if (individualStory["story"]["seo"]["meta-title"].length > 1) {
         metaDataStory.title = individualStory["story"]["seo"]["meta-title"];
-        console.log("in seo meta");
       } else {
         metaDataStory.title = heroData.title;
       }
@@ -170,7 +167,6 @@ export async function getStaticProps(context) {
           individualStory["story"]["seo"]["meta-description"];
       } else {
         metaDataStory.title = heroData.title;
-        console.log("else in seo meta");
       }
     }
     if ("meta-keywords" in individualStory["story"]["seo"]) {

@@ -10,10 +10,11 @@ import selfAdSq2 from "../../../public/images/TA Sq.gif";
 import cultureAdSq3 from "../../../public/images/R&M_Sq Culture.jpg";
 import communityAdSq4 from "../../../public/images/TA Sq.gif";
 import { imgBaseURL, subCatPageUrl } from "../../../helper/constants";
+import Image from "next/image";
 function SectionStoryDisplay({ stories, cat }) {
   const alternateHeroImg = (story) => {
     let heroImage = imgBaseURL + story["hero-image-s3-key"];
-   
+
     if (story["alternative"]) {
       if ("home" in story["alternative"]) {
         if ("default" in story["alternative"]["home"]) {
@@ -148,6 +149,12 @@ function SectionStoryDisplay({ stories, cat }) {
               <div key={index} className="cursor-pointer">
                 <Link href={`/${story["slug"]}`}>
                   <div>
+                    {/* <Image
+                      src={`${imgBaseURL}${story["hero-image-s3-key"]}`}
+                      blurDataURL={`${imgBaseURL}${story["hero-image-s3-key"]}`}
+                      width={592}
+                      height={index === 1 ? 739 : 592}
+                    /> */}
                     <img
                       width="100%"
                       src={`${imgBaseURL}${story["hero-image-s3-key"]}`}

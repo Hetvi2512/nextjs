@@ -104,10 +104,7 @@ export async function getStaticProps(context) {
   };
   if ("home" in individualStory["story"]["alternative"]) {
     if ("default" in individualStory["story"]["alternative"]["home"]) {
-      console.log(
-        "alernative",
-        individualStory["story"]["alternative"]["home"]
-      );
+    
       if (
         "hero-image" in
         individualStory["story"]["alternative"]["home"]["default"]
@@ -123,12 +120,7 @@ export async function getStaticProps(context) {
               "hero-image"
             ]
           ) {
-            console.log(
-              "image changed",
-              individualStory["story"]["alternative"]["home"]["default"][
-                "hero-image"
-              ]["hero-image-s3-key"]
-            );
+          
             heroData.img =
               imgBaseURL +
               individualStory["story"]["alternative"]["home"]["default"][

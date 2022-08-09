@@ -79,7 +79,6 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps(context) {
-  console.log("GENERATING/ REGENERATING PAGES ======================");
 
   const { params } = context;
   const response = await fetch(
@@ -87,7 +86,6 @@ export async function getStaticProps(context) {
   );
   const individualStory = await response.json();
   const cards = individualStory["story"]["cards"];
-  console.log("individualStory", individualStory);
   const heroData = {
     img:
       "https://gumlet.assettype.com/" +
@@ -103,10 +101,7 @@ export async function getStaticProps(context) {
   };
   if ("home" in individualStory["story"]["alternative"]) {
     if ("default" in individualStory["story"]["alternative"]["home"]) {
-      console.log(
-        "alernative",
-        individualStory["story"]["alternative"]["home"]
-      );
+     
       if (
         "hero-image" in
         individualStory["story"]["alternative"]["home"]["default"]
@@ -122,12 +117,7 @@ export async function getStaticProps(context) {
               "hero-image"
             ]
           ) {
-            console.log(
-              "image changed",
-              individualStory["story"]["alternative"]["home"]["default"][
-                "hero-image"
-              ]["hero-image-s3-key"]
-            );
+          
             heroData.img =
               imgBaseURL +
               individualStory["story"]["alternative"]["home"]["default"][
