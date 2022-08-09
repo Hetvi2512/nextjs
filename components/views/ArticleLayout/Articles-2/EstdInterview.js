@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import StyleArticle from "./style";
 import SocialMediaShareButton from "../../SocialMediaShareButton";
-import EstdInterviewCard1 from "./EstdInterviewCard1"
-import EstdInterviewCard2 from "./EstdInterviewCard2"
+import EstdInterviewCard1 from "./EstdInterviewCard1";
+import EstdInterviewCard2 from "./EstdInterviewCard2";
+import Image from "next/image";
 
 function EstdInterview({ heroData, seoData, cards }) {
   const cardType = [];
@@ -64,7 +65,8 @@ function EstdInterview({ heroData, seoData, cards }) {
     <StyleArticle>
       <div className="a4-header">
         <div className="a4-header-img" style={{ width: "50%" }}>
-          <img src={heroData.img} alt="" />
+          <Image src={heroData.img}  placeholder={"blur"} blurDataURL={heroData.img} width={917} height={1145} />
+          {/* <img src={heroData.img} alt="" /> */}
         </div>
         <div className="a4-header-con">
           <div className="Biotif-Book a4-header-cat ">{heroData.cat}</div>
@@ -92,7 +94,7 @@ function EstdInterview({ heroData, seoData, cards }) {
           ) : card === "card2" ? (
             <EstdInterviewCard2 cards={cards[index]} />
           ) : (
-            ""
+            <div key={index}></div>
           )
         )}
     </StyleArticle>

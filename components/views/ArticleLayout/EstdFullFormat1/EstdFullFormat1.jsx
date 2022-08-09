@@ -3,6 +3,7 @@ import EstdFullFormat1Card1 from "./EstdFullFormat1Card1";
 import EstdFullFormat1card2 from "./EstdFullFormat1card2";
 import SocialMediaShareButton from "../../SocialMediaShareButton";
 import Image from "next/image";
+import ReadMoreSection from "../ReadMoreSection";
 
 function EstdFullFormat1({ heroData, seoData, cards }) {
   const cardType = [];
@@ -114,12 +115,13 @@ function EstdFullFormat1({ heroData, seoData, cards }) {
     <>
       <div className="a4-header">
         <div className="a4-header-img" style={{ width: imgWidth }}>
-          <div
+        <Image src={heroData.img}  placeholder={"blur"} blurDataURL={heroData.img} width={917} height={917} />
+          {/* <div
             className="a4-header-img-div"
             style={{ position: "relative", width: "100%", height: "49vw" }}
           >
             <Image priority={true} src={heroData.img} layout="fill" objectFit="cover" />
-          </div>
+          </div> */}
         </div>
         <div className="a4-header-con">
           <div className="Biotif-Book a4-header-cat ">{heroData.cat}</div>
@@ -148,6 +150,11 @@ function EstdFullFormat1({ heroData, seoData, cards }) {
             ""
           )
         )}
+         {
+            displayFlag && cardtype.map((card, index) => (
+                card === 'also-read' ? <ReadMoreSection storyElement={cards[index]['story-elements']} /> : ""
+            ))
+        }
     </>
   );
 }

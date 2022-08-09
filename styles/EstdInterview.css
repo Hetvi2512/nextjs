@@ -11,6 +11,9 @@
     /* max-height: 90vh; */
 
 }
+.a4-header-img > span{
+    display: flex !important;
+ }
 .a4-header-con{
     flex: 1 1 0;
     display: flex;

@@ -5,6 +5,7 @@ import EstdFullDynamicFormatCard2 from "./EstdFullDynamicFormatCard2";
 import EstdFullFormat1Card2 from "../EstdFullFormat1/EstdFullFormat1card2";
 
 import ArticleWrapper from "./style";
+import Image from "next/image";
 function EstdFullFormatDynamic({ heroData, seoData, cards }) {
   const cardType = [];
   const [displayFlag, setDisplayFlag] = useState(false);
@@ -54,7 +55,8 @@ function EstdFullFormatDynamic({ heroData, seoData, cards }) {
     <ArticleWrapper>
       <div className="estd-full-format-2-web">
         <div className="effd-main-img pbp-2">
-          <img width="100%" src={heroData.img} alt="main-image"></img>
+        <Image src={heroData.img} alt="main-image" placeholder={"blur"} blurDataURL={heroData.img} width={1833} height={882} />
+          {/* <img width="100%" src={heroData.img} alt="main-image"></img> */}
         </div>
 
         <div className="style-title pbp-2">{heroData.cat}</div>

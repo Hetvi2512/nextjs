@@ -1,9 +1,10 @@
 import React from "react";
 import Article5Wrapper from "./style";
 import SocialMediaShareButton from "../../SocialMediaShareButton";
-import {imgBaseURL} from '../../../../helper/constants'
+import { imgBaseURL } from "../../../../helper/constants";
 import moment from "moment";
 import SlideShowComp from "./SlideShowComp";
+import Image from "next/image";
 function EstdSlideShow({ heroData, seoData, cards }) {
   const allTypeArray = [];
   const imgArray = [];
@@ -43,12 +44,20 @@ function EstdSlideShow({ heroData, seoData, cards }) {
     <Article5Wrapper>
       <div className="ss-format-web">
         <div className="slide-show-main-img">
-          <img
+          <Image
+            src={heroData.img}
+            placeholder={"blur"}
+            blurDataURL={heroData.img}
+            width={1833}
+            height={1031}
+          />
+
+          {/* <img
             width="100%"
             src={heroData.img}
             // src={MainImage}
             alt="main-1"
-          ></img>
+          ></img> */}
         </div>
       </div>
       <div className="parent-div-article">

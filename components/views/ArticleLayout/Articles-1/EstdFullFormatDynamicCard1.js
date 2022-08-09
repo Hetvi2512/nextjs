@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function EstdFullFormatDynamicCard1({ cards }) {
@@ -18,6 +19,8 @@ function EstdFullFormatDynamicCard1({ cards }) {
             ) : element.type === "image" ? (
               <div className="col-lg-6 col-xl-6 col-md-12 col-sm-12 p-0">
                 <div className="ffd-b-img">
+                {/* <Image src={`https://gumlet.assettype.com/${element["image-s3-key"]}`} alt="main-image" placeholder={"blur"} blurDataURL={`https://gumlet.assettype.com/${element["image-s3-key"]}`} width={742} height={1114} /> */}
+
                   <img
                     width="100%"
                     src={`https://gumlet.assettype.com/${element["image-s3-key"]}`}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { imgBaseURL } from "../../../../helper/constants";
 function EstdInterviewCard2({ cards }) {
@@ -14,11 +15,20 @@ function EstdInterviewCard2({ cards }) {
         ) : element.type === "image" ? (
           <div key={index}>
             <div className="ptp-2">
-              <img
+              <Image
+                quality={100}
+                src={`${imgBaseURL}${element["image-s3-key"]}`}
+                placeholder={"blur"}
+                blurDataURL={`${imgBaseURL}${element["image-s3-key"]}`}
+                width={1833}
+                height={882}
+              />
+
+              {/* <img
                 width="100%"
                 src={`${imgBaseURL}${element["image-s3-key"]}`}
                 alt=""
-              />
+              /> */}
             </div>
             <div
               className="a5-three-img-cap Heldane-Text-Regular"
@@ -29,10 +39,17 @@ function EstdInterviewCard2({ cards }) {
           <div className="new-images-grid">
             {element["story-elements"].map((imageData, index) => (
               <div key={index}>
-                <img
+                <Image
+                  src={`${imgBaseURL}${imageData["image-s3-key"]}`}
+                  placeholder={"blur"}
+                  blurDataURL={`${imgBaseURL}${imageData["image-s3-key"]}`}
+                  width={609}
+                  height={603}
+                />
+                {/* <img
                   width="100%"
                   src={`${imgBaseURL}${imageData["image-s3-key"]}`}
-                ></img>
+                ></img> */}
                 <div
                   className="image-text-2"
                   dangerouslySetInnerHTML={{ __html: imageData["title"] }}

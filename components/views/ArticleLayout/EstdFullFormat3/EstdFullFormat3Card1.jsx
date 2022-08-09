@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import imgBaseURL from "../../../../helper/constants";
 
@@ -20,6 +21,7 @@ function EstdFullFormat3Card1({ cards }) {
               <div key={index}>
                 <div className="a6-img">
                   <div className="a6-img-1">
+                    
                     <img
                       src={`${imgBaseURL}${element["image-s3-key"]}`}
                       alt=""
@@ -45,11 +47,18 @@ function EstdFullFormat3Card1({ cards }) {
               <div className="a6-img mbp-2">
                 {element["story-elements"].map((imageData, index) => (
                   <div className="a6-img-1" key={index}>
-                    <img
+                     <Image
+                      src={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
+                      placeholder={"blur"}
+                      blurDataURL={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
+                      width={517}
+                      height={704}
+                    />
+                    {/* <img
                       className="img-h-90"
                       src={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
                       alt=""
-                    />
+                    /> */}
                     <div
                       className="a4-img-caption"
                       dangerouslySetInnerHTML={{ __html: imageData["title"] }}

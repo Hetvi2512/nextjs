@@ -1,0 +1,12 @@
+.estd-interview-title-img{
+    position:relative  !important;
+    margin-top: 0px;
+    width: 100% !important;
+    height: 85vh !important;
+}
+
+@media (max-width:480px){
+    .estd-interview-title-img{
+        height: "71vh";
+    }
+}

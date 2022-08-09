@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import { imgBaseURL } from '../../../../helper/constants';
 
@@ -17,6 +18,7 @@ const EstdFullFormat1Card1 = (props) => {
                             element['story-elements'].map((imageData, index) => (
 
                                 <div className='a4-img-1' key={index}>
+                                     {/* <Image src={`${imgBaseURL}${imageData['image-s3-key']}`}  placeholder={"blur"} blurDataURL={`${imgBaseURL}${imageData['image-s3-key']}`} width={603} height={804} /> */}
                                     <img src={`${imgBaseURL}${imageData['image-s3-key']}`}></img>
                                     <div className>
                                     <div className='a4-img-caption' dangerouslySetInnerHTML={{ __html: imageData['title'] }}></div>

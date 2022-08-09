@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function EstdFullDynamicFormatCard2({ cards }) {
@@ -13,10 +14,19 @@ function EstdFullDynamicFormatCard2({ cards }) {
                 ? element["story-elements"].map((imageData, index) => (
                     <div key={index}>
                       <div>
+                        <Image
+                          src={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
+                          alt="main-image"
+                          placeholder={"blur"}
+                          blurDataURL={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
+                          width={355}
+                          height={533}
+                        />
+                        {/* 
                         <img
                           width="100%"
                           src={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
-                        ></img>
+                        ></img> */}
                         <div
                           className="image-text HeldaneDisplay-Regular"
                           dangerouslySetInnerHTML={{

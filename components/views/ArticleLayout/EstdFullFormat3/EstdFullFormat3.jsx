@@ -5,6 +5,7 @@ import EstdFullFormat3Card1 from "./EstdFullFormat3Card1";
 import EstdFullFormat3Card2 from "./EstdFullFormat3Card1";
 import EstdFullFormat3Card3 from "./EstdFullFormat3Card3";
 import ReadMoreSection from "../ReadMoreSection";
+import Image from "next/image";
 function EstdFullFormat3({ heroData, seoData, cards }) {
   const cardType = [];
   const [cardtype, setcardtype] = useState([]);
@@ -89,7 +90,14 @@ function EstdFullFormat3({ heroData, seoData, cards }) {
           </div>
         </div>
         <div className="a5-1-img">
-          <img src={heroData.img} alt="" />
+          <Image
+            src={heroData.img}
+            placeholder={"blur"}
+            blurDataURL={heroData.img}
+            width={1833}
+            height={1145}
+          />
+          {/* <img src={heroData.img} alt="" /> */}
         </div>
       </div>
       <div className="estd-full-format-2-web">

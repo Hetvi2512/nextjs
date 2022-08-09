@@ -6,7 +6,9 @@
 .a4-header-img{
     width: 50% !important;
 }
-
+.a4-header-img > span{
+   display: flex !important;
+}
 .a4-header-con{
     flex: 1 1 0;
     display: flex;
