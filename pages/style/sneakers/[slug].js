@@ -69,7 +69,8 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "chef-alex-sanchez-i-am-fascinated-that-food-can-be-infinitely-complex-within-its-simplicity",
+          slug: "indias-coolest-women-sneakerheads-take-us-into-the-shoe-closets",
+          slug:"meet-5-sneaker-enthusiasts-from-northeast-india"
         },
       },
     ],

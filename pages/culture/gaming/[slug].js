@@ -70,7 +70,8 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "chef-alex-sanchez-i-am-fascinated-that-food-can-be-infinitely-complex-within-its-simplicity",
+          slug: "6-wireless-earphones-to-amp-up-your-workout",
+          slug:"6-smartphone-alternatives-that-might-make-you-want-to-ditch-the-iphone"
         },
       },
     ],

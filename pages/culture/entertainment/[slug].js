@@ -70,7 +70,9 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "chef-alex-sanchez-i-am-fascinated-that-food-can-be-infinitely-complex-within-its-simplicity",
+          slug: "ankur-tewari-is-more-than-a-singer-songwriter-the-musician-seeks-to-express-through-authenticity",
+          slug:'hefali-shah-is-finally-getting-roles-that-are-worthy-of-her-craft',
+          slug:"mirzapur-actor-pankaj-tripathi-on-10-years-of-gangs-of-wasseypur-and-finding-success-in-bollywood"
         },
       },
     ],

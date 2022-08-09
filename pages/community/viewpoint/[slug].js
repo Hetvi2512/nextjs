@@ -70,7 +70,8 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "chef-alex-sanchez-i-am-fascinated-that-food-can-be-infinitely-complex-within-its-simplicity",
+          slug: "is-sakshi-sindwani-the-face-of-inclusivity-and-change-in-the-indian-fashion-industry",
+        slug:"in-farah-ahameds-period-matters-menstruation-isnt-always-associated-with-shame"
         },
       },
     ],

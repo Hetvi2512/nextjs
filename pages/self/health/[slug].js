@@ -70,7 +70,9 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "chef-alex-sanchez-i-am-fascinated-that-food-can-be-infinitely-complex-within-its-simplicity",
+          slug: "why-are-we-obsessed-with-tracking-our-health-data",
+          slug:"april-lockhart-wants-to-change-the-narrative-around-disability-in-beauty-and-fashion",
+          slug:"masaba-guptas-new-beauty-brand-lovechild-is-steering-clear-of-gimmicks"
         },
       },
     ],

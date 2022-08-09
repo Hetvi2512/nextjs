@@ -70,8 +70,9 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "chef-alex-sanchez-i-am-fascinated-that-food-can-be-infinitely-complex-within-its-simplicity",
-        },
+          slug: "an-indian-polyamorous-throuple-is-breaking-free-from-the-shackles-of-conventional-marriage",
+          slug:"how-several-indian-queers-are-still-isolated-from-public-spaces"
+        }
       },
     ],
 

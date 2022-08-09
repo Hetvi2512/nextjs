@@ -70,7 +70,8 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "chef-alex-sanchez-i-am-fascinated-that-food-can-be-infinitely-complex-within-its-simplicity",
+          slug: "the-rise-and-rise-of-international-luxury-brands-in-india",
+          slug:"in-the-battle-of-the-otts-who-is-winning-the-indian-leg-of-the-race"
         },
       },
     ],

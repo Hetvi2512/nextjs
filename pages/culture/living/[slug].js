@@ -70,7 +70,8 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "chef-alex-sanchez-i-am-fascinated-that-food-can-be-infinitely-complex-within-its-simplicity",
+          slug: "photographer-serena-chopras-majnu-ka-tilla-diaries-tells-stories-of-the-tibetan-community-in-exile-in-new-delhi",
+          slug:"a-curated-guide-to-five-art-exhibitions-to-check-out"
         },
       },
     ],

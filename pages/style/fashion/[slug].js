@@ -70,7 +70,10 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "chef-alex-sanchez-i-am-fascinated-that-food-can-be-infinitely-complex-within-its-simplicity",
+          slug: "these-jewellery-designers-from-the-middle-east-are-worth-their-weight-in-gold",
+          slug:"looking-for-comfy-innerwear-check-out-these-8-homegrown-labels",
+          slug:"7-under-the-radar-homegrown-watch-brands-to-know-about",
+          slug:"8-ultra-thin-luxury-watches-that-blend-technology-and-aesthetics"
         },
       },
     ],

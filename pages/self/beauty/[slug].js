@@ -70,7 +70,8 @@ export async function getStaticPaths() {
     paths: [
       {
         params: {
-          slug: "chef-alex-sanchez-i-am-fascinated-that-food-can-be-infinitely-complex-within-its-simplicity",
+          slug: "8-cleansers-that-mattify-and-balance-oily-acne-prone-skin",
+          slug:"we-need-to-talk-about-how-ayurveda-is-being-co-opted-by-the-west"
         },
       },
     ],
