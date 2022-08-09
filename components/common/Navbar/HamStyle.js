@@ -9,13 +9,13 @@ function HamStyle(props) {
         <div className='ham-style-right'>
             <div className='ham-center'>
 
-            <div className='ham-style-right-opt Biotif-Bold' onClick={()=>router.push('/style', undefined, { shallow: true })}>
+            <div className='ham-style-right-opt Biotif-Bold' onClick={()=>router.push({pathname:'/style',query:{key:'1'}},'/style', { shallow: true })}>
             → FASHION
             </div>
-            <div className='ham-style-right-opt Biotif-Bold' onClick={()=>router.push('/style', undefined, { shallow: true })}>
+            <div className='ham-style-right-opt Biotif-Bold' onClick={()=>router.push({pathname:'/style',query:{key:'2'}},'/style', { shallow: true })}>
             → SNEAKERS
             </div>
-            <div className='ham-style-right-opt Biotif-Bold' onClick={()=>router.push('/style', undefined, { shallow: true })}>
+            <div className='ham-style-right-opt Biotif-Bold'onClick={()=>router.push({pathname:'/style',query:{key:'3'}},'/style', { shallow: true })}>
             → WATCHES
             </div>
             </div>
