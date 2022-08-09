@@ -5,6 +5,7 @@ import SocialMediaShareButton from "../../SocialMediaShareButton";
 import EstdInterviewCard1 from "./EstdInterviewCard1";
 import EstdInterviewCard2 from "./EstdInterviewCard2";
 import Image from "next/image";
+import ReadMoreSection from "../ReadMoreSection";
 
 function EstdInterview({ heroData, seoData, cards }) {
   const cardType = [];
@@ -65,7 +66,13 @@ function EstdInterview({ heroData, seoData, cards }) {
     <StyleArticle>
       <div className="a4-header">
         <div className="a4-header-img" style={{ width: "50%" }}>
-          <Image src={heroData.img}  placeholder={"blur"} blurDataURL={heroData.img} width={917} height={1145} />
+          <Image
+            src={heroData.img}
+            placeholder={"blur"}
+            blurDataURL={heroData.img}
+            width={917}
+            height={1145}
+          />
           {/* <img src={heroData.img} alt="" /> */}
         </div>
         <div className="a4-header-con">
@@ -95,6 +102,15 @@ function EstdInterview({ heroData, seoData, cards }) {
             <EstdInterviewCard2 cards={cards[index]} />
           ) : (
             <div key={index}></div>
+          )
+        )}
+
+      {displayFlag &&
+        cardtype.map((card, index) =>
+          card === "also-read" ? (
+            <ReadMoreSection storyElement={cards[index]["story-elements"]} />
+          ) : (
+            ""
           )
         )}
     </StyleArticle>

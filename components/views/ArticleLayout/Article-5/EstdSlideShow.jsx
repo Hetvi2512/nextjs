@@ -5,6 +5,7 @@ import { imgBaseURL } from "../../../../helper/constants";
 import moment from "moment";
 import SlideShowComp from "./SlideShowComp";
 import Image from "next/image";
+import ReadMoreSection from "../ReadMoreSection";
 function EstdSlideShow({ heroData, seoData, cards }) {
   const allTypeArray = [];
   const imgArray = [];
@@ -110,10 +111,14 @@ function EstdSlideShow({ heroData, seoData, cards }) {
           )
         )}
       </div>
-      {/* 
-         {
-             readmoreCardNumber >= 0 ? <ReadMoreSection storyElement={cards[readmoreCardNumber]['story-elements']} /> : ''
-         } */}
+
+      {readmoreCardNumber >= 0 ? (
+        <ReadMoreSection
+          storyElement={cards[readmoreCardNumber]["story-elements"]}
+        />
+      ) : (
+        ""
+      )}
     </Article5Wrapper>
   );
 }

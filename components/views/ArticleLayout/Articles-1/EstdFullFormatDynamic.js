@@ -6,6 +6,7 @@ import EstdFullFormat1Card2 from "../EstdFullFormat1/EstdFullFormat1card2";
 
 import ArticleWrapper from "./style";
 import Image from "next/image";
+import ReadMoreSection from "../ReadMoreSection";
 function EstdFullFormatDynamic({ heroData, seoData, cards }) {
   const cardType = [];
   const [displayFlag, setDisplayFlag] = useState(false);
@@ -100,14 +101,14 @@ function EstdFullFormatDynamic({ heroData, seoData, cards }) {
             ""
           )
         )}
-      {/* {displayFlag &&
+      {displayFlag &&
         cardtype.map((card, index) =>
           card === "also-read" ? (
             <ReadMoreSection storyElement={cards[index]["story-elements"]} />
           ) : (
             ""
           )
-        )} */}
+        )}
     </ArticleWrapper>
   );
 }
