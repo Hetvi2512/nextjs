@@ -1,15 +1,15 @@
 import React from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import { imgBaseURL } from "../../../helper/constants";
 import Link from "next/link";
 import { subCatPageUrl } from "../../../helper/constants";
 import Image from "next/image";
 import style from "../../../public/images/title_svg_style.svg";
 function StyleSection({ resp }) {
-  const router = useRouter()
+  const router = useRouter();
   const handleIndividualStory = (a) => {
     console.log("onclick", a["story"]["sections"][0]);
-    router.push(`/${a["story"]["slug"]}`, undefined, { shallow: true })
+    router.push(`/${a["story"]["slug"]}`, undefined, { shallow: true });
   };
   return (
     <>
@@ -22,7 +22,7 @@ function StyleSection({ resp }) {
                 alt="style logo"
                 className="cursor-pointer"
                 onClick={() => {
-                  router.push('/style', undefined, { shallow: true })
+                  router.push("/style", undefined, { shallow: true });
                 }}
                 layout="fill"
               />
@@ -35,7 +35,18 @@ function StyleSection({ resp }) {
                 className={`style-content-${index + 1} style-content`}
               >
                 <Link href={`/${a["story"]["slug"]}`}>
-                  <div
+                  <div className={`style-content-${index + 1} style-content`}>
+                    <div className={"imageContainer"}>
+                      <Image
+                        src={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`}
+                        placeholder="blur"
+                        blurDataURL={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`}
+                        layout="fill"
+                        className={"image"}
+                      />
+                    </div>
+                  </div>
+                  {/* <div
                     className={
                       index == 0 || index == 1
                         ? `style-content-${index + 1}-img style-content-img`
@@ -51,7 +62,7 @@ function StyleSection({ resp }) {
                       layout="fill"
                       // objectFit="cover"
                     />
-                  </div>
+                  </div> */}
                 </Link>
 
                 <Link

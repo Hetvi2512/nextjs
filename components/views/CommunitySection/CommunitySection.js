@@ -1,14 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import CommunityWrapper from "./style";
 import { imgBaseURL, subCatPageUrl } from "../../../helper/constants";
 import community from "../../../public/images/title_svg_community.svg";
 import Image from "next/image";
 function CommunitySection({ resp }) {
   const Tablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div>
       {resp?.length && (
@@ -22,8 +22,7 @@ function CommunitySection({ resp }) {
                   className="cursor-pointer"
                   layout="fill"
                   onClick={() => {
-                    router.push('/community', undefined, { shallow: true })
-
+                    router.push("/community", undefined, { shallow: true });
                   }}
                 />
               </div>
@@ -38,12 +37,15 @@ function CommunitySection({ resp }) {
                     } cursor-pointer`}
                   >
                     <Link href={`/${a["story"]["slug"]}`}>
-                      <img
+                      <div className={"imageContainer"}>
+                        <Image  src={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`} placeholder="blur"  blurDataURL={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`} layout="fill" className={"image"} />
+                      </div>
+                      {/* <img
                         style={{ objectFit: "cover" }}
                         src={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`}
                         width="100%"
                         alt=""
-                      />
+                      /> */}
                     </Link>
                     <Link
                       href={

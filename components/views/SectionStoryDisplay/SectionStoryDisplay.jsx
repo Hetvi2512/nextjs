@@ -149,17 +149,20 @@ function SectionStoryDisplay({ stories, cat }) {
               <div key={index} className="cursor-pointer">
                 <Link href={`/${story["slug"]}`}>
                   <div>
-                    {/* <Image
-                      src={`${imgBaseURL}${story["hero-image-s3-key"]}`}
-                      blurDataURL={`${imgBaseURL}${story["hero-image-s3-key"]}`}
-                      width={592}
-                      height={index === 1 ? 739 : 592}
-                    /> */}
-                    <img
+                    <div className="imageContainer">
+                      <Image
+                        className="image"
+                        src={`${imgBaseURL}${story["hero-image-s3-key"]}`}
+                        placeholder="blur"
+                        blurDataURL={`${imgBaseURL}${story["hero-image-s3-key"]}`}
+                        layout="fill"
+                      />
+                    </div>
+                    {/* <img
                       width="100%"
                       src={`${imgBaseURL}${story["hero-image-s3-key"]}`}
                       alt={index}
-                    ></img>
+                    ></img> */}
                   </div>
                 </Link>
                 <Link href={subCatPageUrl[story["sections"][0]["slug"]].url}>
@@ -244,11 +247,18 @@ function SectionStoryDisplay({ stories, cat }) {
               <div key={index} className="cursor-pointer">
                 <Link href={`/${story["slug"]}`}>
                   <div className="section-story-display-img">
-                    <img
+                    <Image
+                      placeholder="blur"
+                      src={alternateHeroImg(story)}
+                      blurDataURL={alternateHeroImg(story)}
+                      width={407}
+                      height={411}
+                    />
+                    {/* <img
                       width="100%"
                       src={alternateHeroImg(story)}
                       alt={index}
-                    ></img>
+                    ></img> */}
                   </div>
                 </Link>
                 <Link href={subCatPageUrl[story["sections"][0]["slug"]].url}>

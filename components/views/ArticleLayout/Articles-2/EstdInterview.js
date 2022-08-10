@@ -71,7 +71,7 @@ function EstdInterview({ heroData, seoData, cards }) {
             placeholder={"blur"}
             blurDataURL={heroData.img}
             width={917}
-            height={1145}
+            height={1200}
           />
           {/* <img src={heroData.img} alt="" /> */}
         </div>

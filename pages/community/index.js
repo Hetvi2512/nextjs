@@ -135,7 +135,7 @@ function Community({ data, MetaData }) {
           />
         </div>
       </div>
-      <SectionStoryDisplay stories={storyData} cat="culture" />
+      <SectionStoryDisplay stories={storyData} cat="community" />
       {storyMetaData.from + storyMetaData.size < storyMetaData.total ? (
         <div className="d-flex justify-content Biotif-Regular mtp-5 mbp-8 section-read-more">
           <button

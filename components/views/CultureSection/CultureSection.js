@@ -40,10 +40,13 @@ function CultureSection({ resp }) {
                     className={`culture-content-${index + 1} culture-content`}
                   >
                     <Link href={`/${a["story"]["slug"]}`}>
-                      <img
+                      <div className={"imageContainer"}>
+                        <Image src={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`} placeholder="blur" blurDataURL={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`} layout="fill" className={"image"} />
+                      </div>
+                      {/* <img
                         src={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`}
                         alt=""
-                      />
+                      /> */}
                     </Link>
                     <Link
                       href={

@@ -1,12 +1,25 @@
-.estd-interview-title-img{
-    position:relative  !important;
-    margin-top: 0px;
-    width: 100% !important;
-    height: 85vh !important;
+.estd-interview-title-img {
+  position: relative !important;
+  margin-top: 0px;
+  width: 100% !important;
+  height: 85vh !important;
+}
+.imageContainer {
+  width: 100%;
+}
+.imageContainer > span {
+  position: unset !important;
 }
 
-@media (max-width:480px){
-    .estd-interview-title-img{
-        height: "71vh";
-    }
+.image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+@media (max-width: 480px) {
+  .estd-interview-title-img {
+    height: "71vh";
+  }
 }

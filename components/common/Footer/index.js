@@ -31,7 +31,15 @@ function Footer(props) {
                 }
               }}
             >
-              <Image priority={true} src={Established} alt="" className="footer-estd-logo" />
+              <div className={"imageContainer"}>
+                <Image
+                  priority={true}
+                  src={Established}
+                  layout="fill"
+                  className={"image footer-estd-logo"}
+                />
+              </div>
+              {/* <Image priority={true} src={Established} alt="" className="footer-estd-logo" /> */}
             </div>
             <div className="footer-cat">
               <div
@@ -74,7 +82,7 @@ function Footer(props) {
           <div>
             <div className="d-flex s-icon-div">
               <div>
-              <div
+                <div
                   style={{
                     width: "29px",
                     height: "30px",
@@ -95,7 +103,6 @@ function Footer(props) {
                     className="cursor-pointer"
                   />
                 </div>
-               
               </div>
               <div>
                 <div

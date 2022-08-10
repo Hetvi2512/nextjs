@@ -35,11 +35,14 @@ function SelfSection({ resp }) {
                       style={{ cursor: "pointer" }}
                     >
                       <Link href={`/${a["story"]["slug"]}`}>
-                        <img
+                      <div className={"imageContainer"}>
+                        <Image  src={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`} placeholder="blur" blurDataURL={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`} layout="fill" className={"image"} />
+                      </div>
+                        {/* <img
                           style={{ objectFit: "cover" }}
                           width="100%"
                           src={`${imgBaseURL}${a["story"]["hero-image-s3-key"]}`}
-                        ></img>
+                        ></img> */}
                       </Link>
                       <Link
                         href={
