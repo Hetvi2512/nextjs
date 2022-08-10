@@ -1,46 +1,54 @@
 import Head from "next/head";
 import HomePage from "../components/HomePage";
 import { baseUrl } from "../helper/constants";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 import { AiOutlineClose } from "react-icons/ai";
-import Cookies from 'universal-cookie';
-import Mailchimp from '../components/views/Mailchimp/Mailchimp'
+import Cookies from "universal-cookie";
+import Mailchimp from "../components/views/Mailchimp/Mailchimp";
 import { useEffect, useState } from "react";
 const customStyles = {
   overlay: {
-    position: 'fixed',
+    position: "fixed",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'transparent'
+    backgroundColor: "transparent",
   },
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
   },
 };
 export default function Home({ stories, combinedData1, combinedData2 }) {
   const cookies = new Cookies();
   const [modalIsOpen, setIsOpen] = useState(false);
-  const checkCookie =(value)=>{
-    return cookies.get(value)
-  }
+  const checkCookie = (value) => {
+    return cookies.get(value);
+  };
   useEffect(() => {
-    if(typeof checkCookie('ReactModalPopup') =='undefined'){
-      cookies.set('ReactModalPopup', {shouldShow:false},{
-        path: "/",
-        maxAge: 83400
-    });
+    if (typeof checkCookie("ReactModalPopup") == "undefined") {
+      cookies.set(
+        "ReactModalPopup",
+        { shouldShow: false },
+        {
+          path: "/",
+          maxAge: 83400,
+        }
+      );
       openModal();
     }
-  }, [])
-  const disableScroll = () => { document.body.style.overflow = 'hidden' }
-  const enableScroll = () => { document.body.style.overflowY = 'scroll' }
+  }, []);
+  const disableScroll = () => {
+    document.body.style.overflow = "hidden";
+  };
+  const enableScroll = () => {
+    document.body.style.overflowY = "scroll";
+  };
 
   function openModal() {
     // e.preventDefault();
@@ -56,7 +64,7 @@ export default function Home({ stories, combinedData1, combinedData2 }) {
   return (
     <div>
       <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>
           The Established: Style, Self, Culture, Community - For the well
           informed
@@ -65,7 +73,13 @@ export default function Home({ stories, combinedData1, combinedData2 }) {
           name="description"
           content="The Established is a new digital platform at the forefront of a modern landscape, shaped by a community of conscious, authentic and very well-informed, progressive consumers."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          property="image"
+          content="/estd-favicon.png"
+        />
+        <link rel="icon" href="/estd-favicon.png" />
+        <link rel="apple-touch-icon" href="/estd-favicon.png" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <div className="modal-div" style={{ zIndex: 100 }}>
         <Modal
@@ -80,20 +94,26 @@ export default function Home({ stories, combinedData1, combinedData2 }) {
           shouldCloseOnOverlayClick={false}
           contentLabel="Example Modal"
         >
-          <div className="d-flex justify-content-end cursor-pointer" onClick={(e)=>closeModal(e)}><AiOutlineClose size={'2em'} /></div>
+          <div
+            className="d-flex justify-content-end cursor-pointer"
+            onClick={(e) => closeModal(e)}
+          >
+            <AiOutlineClose size={"2em"} />
+          </div>
           <Mailchimp />
         </Modal>
       </div>
-       <HomePage stories={stories} combinedData1={combinedData1} combinedData2={combinedData2} />
-
+      <HomePage
+        stories={stories}
+        combinedData1={combinedData1}
+        combinedData2={combinedData2}
+      />
     </div>
   );
 }
 
 export async function getStaticProps() {
-  const response = await fetch(
-    `${baseUrl}/api/v1/collections/home`
-  );
+  const response = await fetch(`${baseUrl}/api/v1/collections/home`);
   const data = await response.json();
   const homeDisplay = [];
   const displaySeq = {};
@@ -129,7 +149,7 @@ export async function getStaticProps() {
   };
   const combinedData1 = await getCombinedData1(bodyAPIBulk1);
   const combinedData2 = await getCombinedData2(bodyAPIBulk2);
-  console.log("HOME", homeDisplay)
+  console.log("HOME", homeDisplay);
   return {
     props: {
       stories: homeDisplay,
