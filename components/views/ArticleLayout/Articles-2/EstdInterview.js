@@ -8,6 +8,7 @@ import Image from "next/image";
 import ReadMoreSection from "../ReadMoreSection";
 
 function EstdInterview({ heroData, seoData, cards }) {
+  console.log("STORY CARDS", cards);
   const cardType = [];
   const [cardBgColor, setCardBgColor] = useState([]);
   const [displayFlag, setDisplayFlag] = useState(false);
@@ -106,9 +107,15 @@ function EstdInterview({ heroData, seoData, cards }) {
         )}
 
       {displayFlag &&
-        cardtype.map((card, index) =>
+        cardtype?.map((card, index) =>
           card === "also-read" ? (
-            <ReadMoreSection storyElement={cards[index]["story-elements"]} />
+            <>
+              {cards && cards[index] && (
+                <ReadMoreSection
+                  storyElement={cards[index]["story-elements"]}
+                />
+              )}
+            </>
           ) : (
             ""
           )

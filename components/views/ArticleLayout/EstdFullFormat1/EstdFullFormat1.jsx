@@ -115,7 +115,13 @@ function EstdFullFormat1({ heroData, seoData, cards }) {
     <>
       <div className="a4-header">
         <div className="a4-header-img" style={{ width: imgWidth }}>
-        <Image src={heroData.img}  placeholder={"blur"} blurDataURL={heroData.img} width={917} height={917} />
+          <Image
+            src={heroData.img}
+            placeholder={"blur"}
+            blurDataURL={heroData.img}
+            width={917}
+            height={917}
+          />
           {/* <div
             className="a4-header-img-div"
             style={{ position: "relative", width: "100%", height: "49vw" }}
@@ -150,11 +156,20 @@ function EstdFullFormat1({ heroData, seoData, cards }) {
             ""
           )
         )}
-         {
-            displayFlag && cardtype.map((card, index) => (
-                card === 'also-read' ? <ReadMoreSection storyElement={cards[index]['story-elements']} /> : ""
-            ))
-        }
+      {displayFlag &&
+        cardtype.map((card, index) =>
+          card === "also-read" ? (
+            <>
+            {cards && cards[index] && (
+              <ReadMoreSection
+                storyElement={cards[index]["story-elements"]}
+              />
+            )}
+          </>
+          ) : (
+            ""
+          )
+        )}
     </>
   );
 }

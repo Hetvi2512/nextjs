@@ -26,7 +26,11 @@ function EstdFullFormatDynamic({ heroData, seoData, cards }) {
           ) {
             cardType[index] = "card01";
             firstStory = false;
-          } else if (element.type === "image" && element.subtype === null && index!=0) {
+          } else if (
+            element.type === "image" &&
+            element.subtype === null &&
+            index != 0
+          ) {
             cardType[index] = "card1";
             i++;
           } else if (
@@ -56,7 +60,14 @@ function EstdFullFormatDynamic({ heroData, seoData, cards }) {
     <ArticleWrapper>
       <div className="estd-full-format-2-web">
         <div className="effd-main-img pbp-2">
-        <Image src={heroData.img} alt="main-image" placeholder={"blur"} blurDataURL={heroData.img} width={1833} height={882} />
+          <Image
+            src={heroData.img}
+            alt="main-image"
+            placeholder={"blur"}
+            blurDataURL={heroData.img}
+            width={1833}
+            height={882}
+          />
           {/* <img width="100%" src={heroData.img} alt="main-image"></img> */}
         </div>
 
@@ -104,7 +115,13 @@ function EstdFullFormatDynamic({ heroData, seoData, cards }) {
       {displayFlag &&
         cardtype.map((card, index) =>
           card === "also-read" ? (
-            <ReadMoreSection storyElement={cards[index]["story-elements"]} />
+            <>
+            {cards && cards[index] && (
+              <ReadMoreSection
+                storyElement={cards[index]["story-elements"]}
+              />
+            )}
+          </>
           ) : (
             ""
           )

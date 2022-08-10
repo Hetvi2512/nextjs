@@ -38,9 +38,18 @@ const EstdFullFormat1card2 = (props) => {
               <div key={index} className="a4-img">
                 {element["story-elements"].map((imageData, index) => (
                   <div key={index} className="a4-img-1">
-                    <img
+                   <div className={"imageContainer"}>
+                      <Image
+                        src={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
+                        placeholder={"blur"}
+                        blurDataURL={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
+                        layout="fill"
+                        className={"image"}
+                      />
+                    </div>
+                    {/* <img
                       src={`${imgBaseURL}${imageData["image-s3-key"]}`}
-                    ></img>
+                    ></img> */}
                     <div
                       className="a4-img-caption"
                       dangerouslySetInnerHTML={{ __html: imageData["title"] }}

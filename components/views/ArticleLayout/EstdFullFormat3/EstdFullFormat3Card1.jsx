@@ -7,13 +7,12 @@ function EstdFullFormat3Card1({ cards }) {
 
   return (
     <>
-   
       {storyElement && (
         <div className="a5-p1">
-          {storyElement.map((element,index) =>
+          {storyElement.map((element, index) =>
             element.type === "text" ? (
               <div
-              key={index}
+                key={index}
                 className="a5-p1-p1"
                 dangerouslySetInnerHTML={{ __html: element.text }}
               ></div>
@@ -21,7 +20,6 @@ function EstdFullFormat3Card1({ cards }) {
               <div key={index}>
                 <div className="a6-img">
                   <div className="a6-img-1">
-                    
                     <img
                       src={`${imgBaseURL}${element["image-s3-key"]}`}
                       alt=""
@@ -47,13 +45,15 @@ function EstdFullFormat3Card1({ cards }) {
               <div className="a6-img mbp-2">
                 {element["story-elements"].map((imageData, index) => (
                   <div className="a6-img-1" key={index}>
-                     <Image
-                      src={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
-                      placeholder={"blur"}
-                      blurDataURL={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
-                      width={517}
-                      height={704}
-                    />
+                    <div className={"imageContainer"}>
+                      <Image
+                        src={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
+                        placeholder={"blur"}
+                        blurDataURL={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}
+                        layout="fill"
+                        className={"image"}
+                      />
+                    </div>
                     {/* <img
                       className="img-h-90"
                       src={`https://gumlet.assettype.com/${imageData["image-s3-key"]}`}

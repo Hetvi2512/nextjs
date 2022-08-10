@@ -113,9 +113,13 @@ function EstdSlideShow({ heroData, seoData, cards }) {
       </div>
 
       {readmoreCardNumber >= 0 ? (
-        <ReadMoreSection
-          storyElement={cards[readmoreCardNumber]["story-elements"]}
-        />
+        <>
+          {cards && cards[readmoreCardNumber] && (
+            <ReadMoreSection
+              storyElement={cards[readmoreCardNumber]["story-elements"]}
+            />
+          )}
+        </>
       ) : (
         ""
       )}

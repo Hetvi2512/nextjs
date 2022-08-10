@@ -5,6 +5,7 @@ import EstdFullFormat2Card2 from "./EstdFullFormat2Card2";
 import EstdFullFormat2Card3 from "./EstdFullFormat2Card3";
 import ReadMoreSection from "../ReadMoreSection";
 import SocialMediaShareButton from "../../SocialMediaShareButton";
+import Image from "next/image";
 function EstdFullFormat2({ heroData, seoData, cards }) {
   const cardType = [];
   const [cardtype, setcardtype] = useState([]);
@@ -78,7 +79,8 @@ function EstdFullFormat2({ heroData, seoData, cards }) {
       {" "}
       <div className="estd-full-format-2-web">
         <div className="a5-1-img">
-          <img src={heroData.img} alt="" />
+          <Image src={heroData.img} placeholder="blur" blurDataURL={heroData.img} width={1833} height={1146} />
+          {/* <img src={heroData.img} alt="" /> */}
         </div>
         <div className="a5-p1">
           <h1 className="a5-p1-h1 InterstateCompressed-Bold">
@@ -129,7 +131,13 @@ function EstdFullFormat2({ heroData, seoData, cards }) {
       {displayFlag &&
         cardtype.map((card, index) =>
           card === "also-read" ? (
-            <ReadMoreSection storyElement={cards[index]["story-elements"]} />
+            <>
+            {cards && cards[index] && (
+              <ReadMoreSection
+                storyElement={cards[index]["story-elements"]}
+              />
+            )}
+          </>
           ) : (
             ""
           )
