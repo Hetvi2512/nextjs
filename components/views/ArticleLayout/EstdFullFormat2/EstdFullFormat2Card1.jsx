@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { imgBaseURL } from "../../../../helper/constants";
 function EstdFullFormat2Card1({ cards }) {
   const storyElement = cards["story-elements"];

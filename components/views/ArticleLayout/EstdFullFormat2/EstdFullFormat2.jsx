@@ -36,7 +36,7 @@ function EstdFullFormat2({ heroData, seoData, cards }) {
         if ("cardbackgroungcolour" in card.metadata.attributes) {
           if (card.metadata.attributes.cardbackgroungcolour.length >= 1) {
             console.log(
-              "bgcloor",
+              "bgcolor",
               card.metadata.attributes.cardbackgroungcolour[0]
             );
             cardBgColor[index] =
